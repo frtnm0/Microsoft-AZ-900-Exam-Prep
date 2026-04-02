@@ -30,3 +30,23 @@ Cloud Deployment Models
 22. Private Cloud
 23. Hybrid Cloud
 24. Multi-Cloud
+
+Azure Architectural Components
+25. Regions
+26. Availability Zones
+27. Region Pairs
+28. Sovereign Regions (Azure Government/China)
+29. Resources
+30. Resource Groups
+31. Azure Resource Manager (ARM)
+32. Subscriptions
+33. Management Groups
+34. Azure Tenant
+
+Scaling & Modernization
+35. Vertical Scaling (Scaling Up)
+36. Horizontal Scaling (Scaling Out)
+37. Microservices
+38. Containers
+39. Legacy Systems
+40. Cloud Migration

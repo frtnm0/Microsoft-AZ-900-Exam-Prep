@@ -958,5 +958,645 @@
         "link": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/multi-cloud"
       }
     ]
+  },
+  {
+    "id": 24,
+    "term": "Regions",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your company is deploying a new web application for customers primarily located in Europe. To minimize latency and provide the fastest response times, where should you deploy your Azure resources?",
+        "options": [
+          "In a single universal global datacenter.",
+          "In an Azure Region geographically closest to your European users.",
+          "In an Availability Zone in North America.",
+          "In a Management Group."
+        ],
+        "answer": "In an Azure Region geographically closest to your European users.",
+        "explanation": "An **Azure Region** is a geographical area on the planet containing at least one, but potentially multiple datacenters that are networked together. Deploying resources in a region closer to users reduces network latency.",
+        "link": "https://learn.microsoft.com/en-us/azure/availability-zones/az-overview"
+      },
+      {
+        "type": "simple",
+        "question": "What best describes an Azure Region?",
+        "options": [
+          "A single physical server rack within an Azure datacenter.",
+          "A logical container used to group billing resources.",
+          "A geographical area containing at least one, but potentially multiple, datacenters networked together.",
+          "A disaster recovery site operated by a third-party vendor."
+        ],
+        "answer": "A geographical area containing at least one, but potentially multiple, datacenters networked together.",
+        "explanation": "An **Azure Region** is a specific geographic location (like 'East US' or 'North Europe') where Microsoft has clustered its datacenter infrastructure.",
+        "link": "https://learn.microsoft.com/en-us/azure/availability-zones/az-overview"
+      },
+      {
+        "type": "tf",
+        "question": "When you deploy a resource in Azure, it is automatically replicated to all regions worldwide by default.",
+        "answer": false,
+        "explanation": "False. Resources are deployed to **specific regions** that you select. Global replication is not automatic and must be explicitly configured using global services (like Cosmos DB) or disaster recovery solutions.",
+        "link": "https://learn.microsoft.com/en-us/azure/availability-zones/az-overview"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "term": "Availability Zones",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "You are hosting a mission-critical virtual machine. You want to ensure that if a localized fire destroys an entire datacenter building, your application remains available. What Azure feature provides this level of localized fault tolerance?",
+        "options": [
+          "Management Groups",
+          "Azure Content Delivery Network",
+          "Availability Zones",
+          "Resource Groups"
+        ],
+        "answer": "Availability Zones",
+        "explanation": "**Availability Zones** are physically separate datacenters within the same Azure region, each with independent power, cooling, and networking, protecting against datacenter-level failures.",
+        "link": "https://learn.microsoft.com/en-us/azure/availability-zones/az-overview"
+      },
+      {
+        "type": "simple",
+        "question": "What is the primary purpose of Azure Availability Zones?",
+        "options": [
+          "To provide high availability by physically separating datacenters within the same region.",
+          "To replicate data between two entirely different continents.",
+          "To group resources together for simplified billing.",
+          "To manage access permissions for users."
+        ],
+        "answer": "To provide high availability by physically separating datacenters within the same region.",
+        "explanation": "**Availability Zones** ensure high availability by isolating failures to a single physical datacenter facility within a single region.",
+        "link": "https://learn.microsoft.com/en-us/azure/availability-zones/az-overview"
+      },
+      {
+        "type": "tf",
+        "question": "Every single Azure region globally currently supports Availability Zones.",
+        "answer": false,
+        "explanation": "False. While Microsoft continues to expand support, **Availability Zones** are only available in specific, supported regions (often the most popular ones).",
+        "link": "https://learn.microsoft.com/en-us/azure/availability-zones/az-region"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "term": "Region Pairs",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "A massive natural disaster has completely leveled an entire Azure region. Fortunately, Azure is currently rolling out scheduled system updates, but because of a specific architectural feature, Microsoft will not update both your affected region and your backup region simultaneously. What feature provides this sequential updating and disaster recovery pairing?",
+        "options": [
+          "Availability Sets",
+          "Region Pairs",
+          "Azure Governance",
+          "Resource Groups"
+        ],
+        "answer": "Region Pairs",
+        "explanation": "Each Azure region belongs to a **Region Pair** within the same geography. Microsoft prioritizes paired regions during catastrophic failures and ensures system updates are rolled out sequentially (never to both pairs at once).",
+        "link": "https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure"
+      },
+      {
+        "type": "simple",
+        "question": "How far apart are paired regions typically located to ensure protection against broad regional disasters?",
+        "options": [
+          "Less than 5 miles apart.",
+          "At least 50 miles apart.",
+          "At least 300 miles apart.",
+          "On entirely different continents universally."
+        ],
+        "answer": "At least 300 miles apart.",
+        "explanation": "To provide effective disaster recovery against large-scale events (like earthquakes or hurricanes), **Region Pairs** are generally located at least 300 miles apart, yet remain within the same geopolitical boundary for compliance.",
+        "link": "https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure"
+      },
+      {
+        "type": "tf",
+        "question": "You can manually configure an Azure region to pair with any other region in the world to form a custom Region Pair.",
+        "answer": false,
+        "explanation": "False. **Region Pairs** are statically defined by Microsoft (such as East US paired with West US). Customers cannot change or dictate these pairings.",
+        "link": "https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "term": "Sovereign Regions (Azure Government/China)",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your company recently won a contract with the US Department of Defense. You must deploy applications in a totally isolated environment that strictly meets US federal security and compliance boundaries. Which Azure offering must you use?",
+        "options": [
+          "Azure Public Cloud",
+          "Azure Government",
+          "Azure Private Cloud",
+          "Azure Global"
+        ],
+        "answer": "Azure Government",
+        "explanation": "**Azure Government** is an isolated, sovereign cloud built specifically to meet the strict security and compliance requirements of US government agencies and their partners.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-welcome"
+      },
+      {
+        "type": "simple",
+        "question": "What is unique about Azure China 21Vianet compared to standard global Azure regions?",
+        "options": [
+          "It offers completely free resources.",
+          "It is physically isolated and operated by a local Chinese partner to comply with Chinese regulations.",
+          "It is accessible to any individual user globally without a local presence.",
+          "It only supports open-source software."
+        ],
+        "answer": "It is physically isolated and operated by a local Chinese partner to comply with Chinese regulations.",
+        "explanation": "**Azure China** is a sovereign region physically separated from global Azure and operated by a regional partner (21Vianet) to legally comply with Chinese data regulations.",
+        "link": "https://learn.microsoft.com/en-us/azure/china/overview-operations"
+      },
+      {
+        "type": "tf",
+        "question": "Any individual or organization with a credit card can instantly create an Azure Government subscription without validation.",
+        "answer": false,
+        "explanation": "False. Access to sovereign regions like **Azure Government** is restricted. Organizations must go through a rigid validation process to prove they are a government entity or approved partner.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-welcome"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "term": "Resources",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "A developer provisions a new SQL Database and a Virtual Machine in the Azure portal. In Azure terminology, what are these distinct entities referred to as?",
+        "options": [
+          "Management Groups",
+          "Resources",
+          "Tenants",
+          "Subscriptions"
+        ],
+        "answer": "Resources",
+        "explanation": "A **Resource** is the basic building block of Azure. Any manageable item that you deploy (Virtual Machines, Storage Accounts, Web Apps, Databases) is considered an individual resource.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview"
+      },
+      {
+        "type": "simple",
+        "question": "How does Azure define a 'Resource'?",
+        "options": [
+          "A hierarchical boundary used to apply access policies.",
+          "A billing account tied to a credit card.",
+          "A manageable item that is available through Microsoft Azure.",
+          "A physical hardware rack in an Azure datacenter."
+        ],
+        "answer": "A manageable item that is available through Microsoft Azure.",
+        "explanation": "A **Resource** is simply any manageable entity provisioned in your Azure environment.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview"
+      },
+      {
+        "type": "tf",
+        "question": "An individual Azure resource (like a specific Virtual Network) can simultaneously exist in multiple Resource Groups.",
+        "answer": false,
+        "explanation": "False. A **Resource** must be placed into one, and exactly one, Resource Group. However, it can be moved from one Resource Group to another.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "term": "Resource Groups",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your team finishes testing a prototype application containing 15 different resources (VMs, IPs, VNETs). Instead of deleting them one by one, the administrator deletes the container holding them, immediately tearing down the entire environment. What Azure container allowed this?",
+        "options": [
+          "Management Group",
+          "Subscription",
+          "Resource Group",
+          "Azure Tenant"
+        ],
+        "answer": "Resource Group",
+        "explanation": "A **Resource Group** serves as a logical lifecycle envelope. Deleting a resource group automatically and permanently deletes every resource contained within it instantly.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal"
+      },
+      {
+        "type": "simple",
+        "question": "What is a primary purpose of using Azure Resource Groups?",
+        "options": [
+          "To group resources together that share the same lifecycle for easier deployment, management, and deletion.",
+          "To physically house Virtual Machines on the exact same server rack.",
+          "To enforce multi-factor authentication for administrators.",
+          "To pair two Azure regions together for disaster recovery."
+        ],
+        "answer": "To group resources together that share the same lifecycle for easier deployment, management, and deletion.",
+        "explanation": "**Resource Groups** are logical containers that combine resources that belong to the same application or have the same lifecycle, making them easier to manage as a cohesive unit.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview"
+      },
+      {
+        "type": "tf",
+        "question": "Resources placed inside a Resource Group must be located in the same geographic region as the Resource Group itself.",
+        "answer": false,
+        "explanation": "False. A **Resource Group** stores metadata about resources and has its own region, but the resources placed inside it can be deployed to absolutely any region globally.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "term": "Azure Resource Manager (ARM)",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "A release pipeline sends automated deployment commands via REST API, the Azure CLI, and the Azure Portal. Regardless of the tool used, the deployment is validated and handled by the exact same central deployment engine. What is this engine called?",
+        "options": [
+          "Availability Zones",
+          "Azure Resource Manager (ARM)",
+          "Azure Activity Log",
+          "Azure Active Directory"
+        ],
+        "answer": "Azure Resource Manager (ARM)",
+        "explanation": "**Azure Resource Manager (ARM)** is the centralized deployment and management service for Azure. All requests (Portal, APIs, CLI) funnel through ARM to create, update, or delete resources.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview"
+      },
+      {
+        "type": "simple",
+        "question": "Which of the following best describes Azure Resource Manager (ARM)?",
+        "options": [
+          "A relational database service.",
+          "A physical hardware component in a datacenter.",
+          "The deployment and management service for Azure that authenticates and parses requests.",
+          "A sovereign cloud meant only for government use."
+        ],
+        "answer": "The deployment and management service for Azure that authenticates and parses requests.",
+        "explanation": "**ARM** is the unified management layer providing management capabilities like access control (RBAC), locks, and tags to all resources consistently.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview"
+      },
+      {
+        "type": "tf",
+        "question": "You can only use Azure Resource Manager (ARM) capabilities if you are interacting with Azure strictly through the web-based Azure Portal.",
+        "answer": false,
+        "explanation": "False. **ARM** is the API layer that underpins *every* method of interacting with Azure. The Portal, CLI, PowerShell, and SDKs all communicate directly with ARM.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "term": "Subscriptions",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "An enterprise organization wants to separate the billing invoice for its 'Human Resources' department from its 'Development' department so costs are clearly divided. What is the best way to achieve this billing boundary in Azure?",
+        "options": [
+          "Create two separate Resource Groups.",
+          "Create two separate Availability Zones.",
+          "Create two separate Subscriptions.",
+          "Create two completely separate Azure Tenants."
+        ],
+        "answer": "Create two separate Subscriptions.",
+        "explanation": "An **Azure Subscription** acts as a billing boundary and access control boundary. Using separate subscriptions is the standard way to generate separate invoices for different departments.",
+        "link": "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription"
+      },
+      {
+        "type": "simple",
+        "question": "In the Azure organizational hierarchy, what defines an Azure Subscription?",
+        "options": [
+          "It is the root node containing all other Management Groups.",
+          "It is a logical unit of Azure services that binds resources to an underlying Azure account and serves as a billing boundary.",
+          "It is a directory of users and groups.",
+          "It is a specific piece of infrastructure like a virtual machine."
+        ],
+        "answer": "It is a logical unit of Azure services that binds resources to an underlying Azure account and serves as a billing boundary.",
+        "explanation": "A **Subscription** provides a logical container representing a billing agreement with Microsoft, under which resources are provisioned and paid for.",
+        "link": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions"
+      },
+      {
+        "type": "tf",
+        "question": "A single Azure account or Tenant can have multiple active Subscriptions tied to it.",
+        "answer": true,
+        "explanation": "True. Organizations frequently create **multiple subscriptions** (e.g., Prod, Dev, QA) under a single Azure Tenant to securely separate billing environments and enforce limits.",
+        "link": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "term": "Management Groups",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "A massive enterprise has 50 different Azure Subscriptions. The CISO wants to enforce an Azure Policy that prohibits deploying resources outside of North America across all 50 subscriptions simultaneously. What organizational feature should be used?",
+        "options": [
+          "Resource Groups",
+          "Management Groups",
+          "Azure Active Directory Domains",
+          "Availability Sets"
+        ],
+        "answer": "Management Groups",
+        "explanation": "**Management Groups** sit above Subscriptions in the hierarchy. By applying a policy to a Management Group, it automatically cascades down to all subscriptions nested underneath it.",
+        "link": "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview"
+      },
+      {
+        "type": "simple",
+        "question": "What is the highest level of organization you can create to manage access, policy, and compliance across multiple Azure subscriptions?",
+        "options": [
+          "Azure Tenants",
+          "Resource Groups",
+          "Management Groups",
+          "Azure Resource Manager"
+        ],
+        "answer": "Management Groups",
+        "explanation": "**Management Groups** provide a level of scope above subscriptions, letting you efficiently manage multiple subscriptions at scale.",
+        "link": "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview"
+      },
+      {
+        "type": "tf",
+        "question": "A single Azure Subscription can be placed under multiple separate Management Groups at the same level.",
+        "answer": false,
+        "explanation": "False. The structure is strictly hierarchical. An **Azure Subscription** can only have one direct parent Management Group.",
+        "link": "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "term": "Azure Tenant",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "When your organization first signed up for Microsoft 365, Microsoft created a dedicated and trusted instance of Microsoft Entra ID (formerly Azure AD) to manage your users and passwords. What is this dedicated instance officially called?",
+        "options": [
+          "An Azure Tenant",
+          "A Management Group",
+          "A Resource Group",
+          "A Subscription"
+        ],
+        "answer": "An Azure Tenant",
+        "explanation": "An **Azure Tenant** (or directory) is a dedicated instance of Microsoft Entra ID that houses your organization's users, groups, and app registrations.",
+        "link": "https://learn.microsoft.com/en-us/entra/fundamentals/whatis"
+      },
+      {
+        "type": "simple",
+        "question": "In the context of Azure Identity, what relationship does an Azure Tenant have with Azure Subscriptions?",
+        "options": [
+          "A Tenant must always be mapped 1:1 with exactly one subscription.",
+          "A Subscription completely owns the Tenant.",
+          "A Tenant 'trusts' multiple subscriptions to authenticate users, but a subscription can only trust one Tenant.",
+          "A Tenant is used solely for billing and has no identity features."
+        ],
+        "answer": "A Tenant 'trusts' multiple subscriptions to authenticate users, but a subscription can only trust one Tenant.",
+        "explanation": "An **Azure Tenant** holds the identities. While one tenant can have many subscriptions tied to it, each individual subscription trusts and uses exactly one central tenant for authentication.",
+        "link": "https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory"
+      },
+      {
+        "type": "tf",
+        "question": "Deleting an Azure Subscription automatically deletes the underlying Azure Tenant and all associated user accounts.",
+        "answer": false,
+        "explanation": "False. The **Azure Tenant** (the directory of users) exists completely independently of Subscriptions. Deleting a subscription strips the resources, but the tenant and users remain intact.",
+        "link": "https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "term": "Vertical Scaling (Scaling Up)",
+    "category": "Scaling & Modernization",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your single database server is consistently hitting 100% CPU usage. To resolve this without changing your application architecture, you upgrade the server by adding more RAM and a faster CPU. What type of scaling is this?",
+        "options": [
+          "Horizontal Scaling (Scaling Out)",
+          "Vertical Scaling (Scaling Up)",
+          "Elasticity",
+          "Geo-distribution"
+        ],
+        "answer": "Vertical Scaling (Scaling Up)",
+        "explanation": "**Vertical Scaling** (or scaling up) involves adding more power (CPU, RAM) to an existing resource. It does not require code changes but typically requires a brief reboot/downtime.",
+        "link": "https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/"
+      },
+      {
+        "type": "simple",
+        "question": "Which of the following defines Vertical Scaling in cloud computing?",
+        "options": [
+          "Adding entirely new server instances to a load balanced pool.",
+          "Increasing the computing capacity of an existing resource.",
+          "Distributing a database to multiple geographic continents.",
+          "Refactoring an old application to use PaaS."
+        ],
+        "answer": "Increasing the computing capacity of an existing resource.",
+        "explanation": "**Vertical Scaling** means making an existing component structurally larger and more powerful, rather than adding more components.",
+        "link": "https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/"
+      },
+      {
+        "type": "tf",
+        "question": "Vertical scaling allows you to increase a virtual machine's resources infinitely without any constraints.",
+        "answer": false,
+        "explanation": "False. **Vertical Scaling** has an upper physical limit (the maximum capacity of the underlying physical host hardware in the Azure datacenter).",
+        "link": "https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "term": "Horizontal Scaling (Scaling Out)",
+    "category": "Scaling & Modernization",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "An e-commerce website anticipates massive traffic during Black Friday. The IT team configures Azure to automatically add ten standard virtual machines to their web farm as traffic increases. What type of scaling is this?",
+        "options": [
+          "Vertical Scaling (Scaling Up)",
+          "Horizontal Scaling (Scaling Out)",
+          "Disaster Recovery",
+          "Fault Tolerance"
+        ],
+        "answer": "Horizontal Scaling (Scaling Out)",
+        "explanation": "**Horizontal Scaling** (scaling out) involves adding more distinct instances (like more VMs) to handle load, usually behind a load balancer. It has practically limitless capacity.",
+        "link": "https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/"
+      },
+      {
+        "type": "simple",
+        "question": "What is the primary advantage of Horizontal Scaling over Vertical Scaling?",
+        "options": [
+          "It never requires a load balancer.",
+          "It provides the ability to scale capacity virtually infinitely without hitting hardware maximums.",
+          "It makes the individual compute instances much faster.",
+          "It requires zero network connectivity."
+        ],
+        "answer": "It provides the ability to scale capacity virtually infinitely without hitting hardware maximums.",
+        "explanation": "Because **Horizontal Scaling** simply adds more machines rather than upgrading a single machine, you aren't constrained by the physical limits of a single hardware chassis.",
+        "link": "https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/"
+      },
+      {
+        "type": "tf",
+        "question": "Horizontal scaling typically requires an application architecture that supports distributed workloads.",
+        "answer": true,
+        "explanation": "True. To successfully **scale horizontally**, the software must be designed to distribute its workload dynamically across multiple independent servers.",
+        "link": "https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "term": "Microservices",
+    "category": "Scaling & Modernization",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "A development team wants to modernize a massive monolithic application. They decide to break it down into smaller, independent services (e.g., 'Inventory', 'Billing', 'Shipping') that communicate via APIs. What architectural pattern is this?",
+        "options": [
+          "Monolithic Architecture",
+          "Microservices",
+          "Serverless Computing",
+          "Hybrid Cloud"
+        ],
+        "answer": "Microservices",
+        "explanation": "**Microservices** is an architectural style where an application is composed of small, independent services that run unique processes and communicate via lightweight mechanisms.",
+        "link": "https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/microservices"
+      },
+      {
+        "type": "simple",
+        "question": "What is a main benefit of utilizing a Microservices architecture?",
+        "options": [
+          "All code exists securely within a single large execution file.",
+          "Different teams can deploy, update, and scale individual services independently.",
+          "It completely eliminates network latency.",
+          "It reduces the need for source control."
+        ],
+        "answer": "Different teams can deploy, update, and scale individual services independently.",
+        "explanation": "By decoupling the application into **Microservices**, a failure or update in one component (like the 'Cart' service) doesn't require taking the entire application offline.",
+        "link": "https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/microservices"
+      },
+      {
+        "type": "tf",
+        "question": "In a Microservices architecture, every service must be written in the exact same programming language to function correctly.",
+        "answer": false,
+        "explanation": "False. One of the greatest strengths of **Microservices** is polyglot programming—teams can choose the best language and database specific to that individual service's needs.",
+        "link": "https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/microservices"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "term": "Containers",
+    "category": "Scaling & Modernization",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "A developer writes an application in Python and wants to ensure it behaves exactly the same on their laptop, in a testing environment, and in the Azure cloud without installing a full operating system for each instance. What technology should they use?",
+        "options": [
+          "Full Virtual Machines",
+          "Containers",
+          "Azure Active Directory",
+          "Availability Zones"
+        ],
+        "answer": "Containers",
+        "explanation": "**Containers** package applications and their dependencies together into a standardized unit that shares the host's operating system, making them incredibly lightweight and portable.",
+        "link": "https://learn.microsoft.com/en-us/training/modules/intro-to-containers/"
+      },
+      {
+        "type": "simple",
+        "question": "How do Containers primarily differ from Virtual Machines (VMs)?",
+        "options": [
+          "Containers do not require any CPU or RAM to execute.",
+          "Containers include a full, independent guest operating system for every application.",
+          "Containers run on top of the host operating system, sharing the OS kernel.",
+          "Containers can only run Windows-based applications."
+        ],
+        "answer": "Containers run on top of the host operating system, sharing the OS kernel.",
+        "explanation": "While VMs virtualize hardware and run a heavy full guest OS, **Containers** only virtualize the OS layer, sharing the host kernel which makes them boot instantly and use fewer resources.",
+        "link": "https://learn.microsoft.com/en-us/training/modules/intro-to-containers/"
+      },
+      {
+        "type": "tf",
+        "question": "Azure Kubernetes Service (AKS) is a managed service designed to help orchestrate and manage large numbers of containers.",
+        "answer": true,
+        "explanation": "True. AKS is Microsoft's hosted Kubernetes service, used to automate deploying, scaling, and operating applications built using **Containers**.",
+        "link": "https://learn.microsoft.com/en-us/azure/aks/"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "term": "Legacy Systems",
+    "category": "Scaling & Modernization",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "An enterprise relies on a 25-year-old on-premises server that runs critical custom payroll software. The core logic of the software cannot easily be rewritten or moved to modern web frameworks. What is this type of infrastructure generally referred to as?",
+        "options": [
+          "Serverless Workload",
+          "Microservice",
+          "Legacy System",
+          "Platform as a Service (PaaS)"
+        ],
+        "answer": "Legacy System",
+        "explanation": "A **Legacy System** is outdated computer hardware, software, or technology that is still in use. Legacy systems are often difficult to maintain but hold critical business value.",
+        "link": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/azure-best-practices/"
+      },
+      {
+        "type": "simple",
+        "question": "What is a common challenge associated with Legacy Systems when moving to the cloud?",
+        "options": [
+          "They automatically upgrade to new programming languages.",
+          "They typically lack support for modern APIs and advanced cloud scalability features.",
+          "They are inherently more secure than modern cloud databases.",
+          "They integrate natively with Azure Cognitive Services by default."
+        ],
+        "answer": "They typically lack support for modern APIs and advanced cloud scalability features.",
+        "explanation": "**Legacy Systems** were built before modern cloud architectures existed, making them notoriously difficult to secure, scale, and integrate with modern web APIs.",
+        "link": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/azure-best-practices/"
+      },
+      {
+        "type": "tf",
+        "question": "When migrating a legacy system to Azure, organizations always perfectly rewrite all code from scratch (Refactoring) as their first step.",
+        "answer": false,
+        "explanation": "False. Often, because of complexity, organizations first use a 'Lift-and-Shift' (Rehosting) approach to simply move the **Legacy System** onto an Azure Virtual Machine before rewriting it.",
+        "link": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/azure-migration-guide/"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "term": "Cloud Migration",
+    "category": "Scaling & Modernization",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "A company decides to close its on-premises datacenter. Over the next year, they systematically transfer all databases and virtual machines into Microsoft Azure. What is this overarching business process called?",
+        "options": [
+          "Containerization",
+          "Cloud Migration",
+          "Vertical Scaling",
+          "Agile Development"
+        ],
+        "answer": "Cloud Migration",
+        "explanation": "**Cloud Migration** is the comprehensive process of moving digital assets (data, workloads, IT resources, or applications) from local, on-premises infrastructure to the cloud.",
+        "link": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/"
+      },
+      {
+        "type": "simple",
+        "question": "What is the primary purpose of the Microsoft Cloud Adoption Framework (CAF) for Azure?",
+        "options": [
+          "To enforce mandatory multi-year billing contracts for large enterprises.",
+          "To serve as the physical network routing protocol within Azure regions.",
+          "To provide organizations with proven guidance and best practices for their cloud migration journey.",
+          "To replace individual developers with artificial intelligence."
+        ],
+        "answer": "To provide organizations with proven guidance and best practices for their cloud migration journey.",
+        "explanation": "The **Cloud Adoption Framework (CAF)** is Microsoft's official collection of documentation, best practices, and tools aimed at helping businesses successfully plan and execute a **Cloud Migration**.",
+        "link": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/"
+      },
+      {
+        "type": "tf",
+        "question": "A typical cloud migration is always completed in a single weekend without requiring a formal strategy phase.",
+        "answer": false,
+        "explanation": "False. Proper **Cloud Migration** is usually a complex, multi-phase journey involving strategy, planning, readiness assessments, adoption, and ongoing governance.",
+        "link": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/"
+      }
+    ]
   }
 ]
