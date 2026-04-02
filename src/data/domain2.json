@@ -1,0 +1,23 @@
+[
+  {
+    "id": 7,
+    "term": "Azure Virtual Machines",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "A company needs to run a legacy application that requires Windows Server. Which Azure service should they use?",
+        "options": ["Azure Functions", "Azure Virtual Machines", "Azure App Service", "Azure Kubernetes Service"],
+        "answer": "Azure Virtual Machines",
+        "explanation": "**Azure Virtual Machines** allow running custom OS and applications, ideal for legacy software.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/"
+      },
+      {
+        "type": "tf",
+        "question": "Azure Virtual Machines support only Linux OS.",
+        "answer": false,
+        "explanation": "**Azure VMs** support both Windows and Linux operating systems.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/"
+      }
+    ]
+  }
+]

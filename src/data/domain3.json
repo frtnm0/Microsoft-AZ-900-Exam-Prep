@@ -1,0 +1,23 @@
+[
+  {
+    "id": 8,
+    "term": "Azure Policy",
+    "questions": [
+      {
+        "type": "simple",
+        "question": "What is Azure Policy used for?",
+        "options": ["Enforcing organizational standards", "Managing user identities", "Monitoring performance", "Storing data"],
+        "answer": "Enforcing organizational standards",
+        "explanation": "**Azure Policy** helps enforce governance by ensuring resources comply with standards.",
+        "link": "https://learn.microsoft.com/en-us/azure/governance/policy/"
+      },
+      {
+        "type": "tf",
+        "question": "Azure Policy can automatically remediate non-compliant resources.",
+        "answer": true,
+        "explanation": "**Azure Policy** supports remediation tasks to bring resources into compliance.",
+        "link": "https://learn.microsoft.com/en-us/azure/governance/policy/"
+      }
+    ]
+  }
+]

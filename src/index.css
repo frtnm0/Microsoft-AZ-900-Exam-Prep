@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base background: soft white/grey */
+    --background: 210 20% 98%;
+    /* Darker foreground for readability */
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    
+    /* Azure Blue Primary */
+    --primary: 212 100% 48%;
+    --primary-foreground: 210 40% 98%;
+    --primary-hover: 212 90% 45%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 214.3 31.8% 91.4%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 212 100% 48%; /* Matches primary */
+    --radius: 1rem; /* More rounded overall */
+  }
+
+  .dark {
+    /* Deep rich dark blue-grey background, not pure black */
+    --background: 222 47% 7%;
+    --foreground: 210 40% 98%;
+    /* Cards slightly lighter than bg */
+    --card: 223 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 223 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Bright Azure Blue for contrast on dark */
+    --primary: 212 100% 55%;
+    --primary-foreground: 210 40% 98%;
+    --primary-hover: 212 100% 65%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 223 47% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased overflow-y-scroll selection:bg-primary/20 selection:text-primary;
+  }
+  
+  /* Smooth scrolling globally */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom styled scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-slate-300 dark:bg-slate-700 hover:bg-slate-400 dark:hover:bg-slate-600 transition-colors;
+  }
+}
