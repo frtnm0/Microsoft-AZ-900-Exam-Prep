@@ -1,22 +1,1601 @@
 [
   {
-    "id": 7,
-    "term": "Azure Virtual Machines",
+    "id": 0,
+    "term": "Azure Datacenters",
+    "category": "Core Architecture",
     "questions": [
       {
         "type": "scenario",
-        "question": "A company needs to run a legacy application that requires Windows Server. Which Azure service should they use?",
-        "options": ["Azure Functions", "Azure Virtual Machines", "Azure App Service", "Azure Kubernetes Service"],
-        "answer": "Azure Virtual Machines",
-        "explanation": "**Azure Virtual Machines** allow running custom OS and applications, ideal for legacy software.",
-        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/"
+        "question": "You are explaining the physical infrastructure of Azure to a colleague. You describe unique physical buildings located all over the globe that contain thousands of computer servers with independent power, cooling, and networking. What Azure concept are you describing?",
+        "options": [
+          "Azure Regions",
+          "Azure Datacenters",
+          "Availability Zones",
+          "Geographies"
+        ],
+        "answer": "Azure Datacenters",
+        "explanation": "**Azure Datacenters** are unique physical buildings—facilities located all over the globe—that house the server racks, power, cooling, and network infrastructure powering the cloud.",
+        "link": "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview"
+      },
+      {
+        "type": "simple",
+        "question": "What is the relationship between an Azure Datacenter and an Azure Region?",
+        "options": [
+          "A region is physically located inside a single datacenter.",
+          "A datacenter and a region are identical terms for the exact same physical building.",
+          "An Azure region is a geographical boundary that contains at least one, but usually multiple, datacenters.",
+          "Datacenters exist in space, while regions exist on Earth."
+        ],
+        "answer": "An Azure region is a geographical boundary that contains at least one, but usually multiple, datacenters.",
+        "explanation": "A **Region** is a cluster of one or more physical **Datacenters** situated in close physical proximity and connected via a low-latency network.",
+        "link": "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview"
       },
       {
         "type": "tf",
-        "question": "Azure Virtual Machines support only Linux OS.",
+        "question": "Microsoft allows customers to physically visit Azure datacenters to perform maintenance on their own dedicated servers.",
         "answer": false,
-        "explanation": "**Azure VMs** support both Windows and Linux operating systems.",
-        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/"
+        "explanation": "False. **Azure Datacenters** are highly secured physical facilities maintained exclusively by Microsoft personnel. Customers cannot physically access them.",
+        "link": "https://learn.microsoft.com/en-us/azure/security/fundamentals/physical-security"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "term": "Availability Sets",
+    "category": "Core Architecture",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "You are deploying two Virtual Machines manually in the same region. You want to ensure that if a power rack fails or Microsoft performs a rolling hardware update, both VMs do not go offline simultaneously. However, you do not want to deploy them into entirely separate physical datacenter buildings. What feature should you use?",
+        "options": [
+          "Availability Zones",
+          "Availability Sets",
+          "Virtual Machine Scale Sets",
+          "Region Pairs"
+        ],
+        "answer": "Availability Sets",
+        "explanation": "**Availability Sets** provide redundancy *within a single datacenter* by grouping VMs across different fault domains (power racks) and update domains (maintenance cycles).",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview"
+      },
+      {
+        "type": "simple",
+        "question": "What is the primary purpose of an Azure Availability Set?",
+        "options": [
+          "To replicate data between two different continents asynchronously.",
+          "To provide 100% protection against the destruction of an entire Azure region.",
+          "To provide high availability for virtual machines by protecting against localized hardware failures and planned updates within a single datacenter.",
+          "To automatically increase the CPU and RAM of a virtual machine during high load."
+        ],
+        "answer": "To provide high availability for virtual machines by protecting against localized hardware failures and planned updates within a single datacenter.",
+        "explanation": "An **Availability Set** isolates VMs from single points of failure (like a rack failure) inside a single datacenter facility.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview"
+      },
+      {
+        "type": "tf",
+        "question": "Availability Sets offer a higher protection SLA and broader fault tolerance than Availability Zones.",
+        "answer": false,
+        "explanation": "False. **Availability Zones** physically separate resources into different datacenters, providing significantly higher fault tolerance (and a 99.99% SLA) compared to **Availability Sets** (which operate within the same building).",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "term": "Fault Domains",
+    "category": "Core Architecture",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "In the middle of the night, a central power unit supplying electricity to a specific server rack in an Azure datacenter shorts out, causing the entire rack to lose power. Your application remains online because your primary and secondary VMs were placed in separate groups. What are these groups defined as?",
+        "options": [
+          "Update Domains",
+          "Fault Domains",
+          "Management Groups",
+          "Availability Zones"
+        ],
+        "answer": "Fault Domains",
+        "explanation": "A **Fault Domain** represents a logical group of underlying hardware that shares a common power source and physical network switch (essentially, a server rack).",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview"
+      },
+      {
+        "type": "simple",
+        "question": "Within an Availability Set, what specifically does a Fault Domain protect against?",
+        "options": [
+          "Planned Microsoft OS updates requiring host restarts.",
+          "Unplanned hardware failures, such as server rack power outages or network switch failures.",
+          "Malicious DDoS attacks from the internet.",
+          "Total datacenter destruction due to a natural disaster."
+        ],
+        "answer": "Unplanned hardware failures, such as server rack power outages or network switch failures.",
+        "explanation": "**Fault domains** specifically mitigate the risk of *unplanned* localized physical hardware failures within a datacenter.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview"
+      },
+      {
+        "type": "tf",
+        "question": "When configuring an Availability Set, Azure automatically assigns your Virtual Machines to different Fault Domains.",
+        "answer": true,
+        "explanation": "True. Azure natively handles the placement of VMs. When you create an **Availability Set**, Azure automatically spreads your VMs across different **Fault Domains**.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "term": "Update Domains",
+    "category": "Core Architecture",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Microsoft is rolling out a critical security patch to the physical host servers running customer Virtual Machines. This patch requires the host servers to reboot. To prevent all your VMs from rebooting simultaneously, Azure reboots them in sequenced groups. What are these sequenced groups called?",
+        "options": [
+          "Fault Domains",
+          "Update Domains",
+          "Region Pairs",
+          "Availability Zones"
+        ],
+        "answer": "Update Domains",
+        "explanation": "An **Update Domain** is a logical group of hardware that can undergo maintenance or reboot simultaneously. Azure patches one update domain at a time.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview"
+      },
+      {
+        "type": "simple",
+        "question": "What is the primary function of an Update Domain in Azure?",
+        "options": [
+          "To define the geographic boundary for data sovereignty.",
+          "To ensure that only a subset of your deployed VMs reboot at the same time during planned maintenance.",
+          "To provide isolated power supplies to physical server racks.",
+          "To replicate database transactions to another region."
+        ],
+        "answer": "To ensure that only a subset of your deployed VMs reboot at the same time during planned maintenance.",
+        "explanation": "**Update Domains** specifically protect workloads from downtime during *planned* Microsoft maintenance cycles.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview"
+      },
+      {
+        "type": "tf",
+        "question": "Virtual Machines belonging to the exact same Update Domain will be rebooted synchronously at the exact same time during planned maintenance.",
+        "answer": true,
+        "explanation": "True. Because they belong to the same **Update Domain**, they are deliberately grouped together to be updated and restarted simultaneously.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "term": "Geographies",
+    "category": "Core Architecture",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your employer is an insurance company operating strictly in Germany. For strict regulatory and legal compliance, they must ensure that all customer data physically never leaves the borders of Germany. Which Azure architectural concept defines these data residency boundaries?",
+        "options": [
+          "Availability Zones",
+          "Azure Geographies",
+          "Update Domains",
+          "Azure Global Network"
+        ],
+        "answer": "Azure Geographies",
+        "explanation": "An **Azure Geography** is a discrete market (typically a country or country border) that preserves data residency and compliance boundaries.",
+        "link": "https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure"
+      },
+      {
+        "type": "simple",
+        "question": "What relationship does an Azure Geography have with Azure Regions?",
+        "options": [
+          "A Geography is located inside a single Azure Region.",
+          "A Geography contains at least one, but usually two or more, Azure Regions.",
+          "A Geography is identical to an Availability Zone.",
+          "A Geography specifically avoids containing any Datacenters."
+        ],
+        "answer": "A Geography contains at least one, but usually two or more, Azure Regions.",
+        "explanation": "An **Azure Geography** (like 'Europe' or 'United States') contains multiple **Azure Regions** (like 'East US' and 'West US') to allow disaster recovery while keeping data within the geography.",
+        "link": "https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure"
+      },
+      {
+        "type": "tf",
+        "question": "A fundamental benefit of Azure Geographies is that they help customers ensure their data remains within specific legal jurisdictions.",
+        "answer": true,
+        "explanation": "True. **Geographies** are designed explicitly to ensure data residency, sovereignty, compliance, and legal resiliency within a country's borders.",
+        "link": "https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "term": "Azure Resource Manager (ARM) Templates",
+    "category": "Core Architecture",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your development team needs to deploy identical infrastructure environments for Development, Staging, and Production. Rather than clicking through the Azure portal manually each time, they write code to define the infrastructure, which Azure then automatically rolls out. What native Azure feature enables this Infrastructure-as-Code (IaC) deployment?",
+        "options": [
+          "Azure Cognitive Services",
+          "Azure Resource Manager (ARM) Templates",
+          "Azure Active Directory Domains",
+          "Availability Sets"
+        ],
+        "answer": "Azure Resource Manager (ARM) Templates",
+        "explanation": "**ARM Templates** are JSON files that define the infrastructure and configuration for your project declaratively, ensuring consistent deployed environments.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview"
+      },
+      {
+        "type": "simple",
+        "question": "Which programming format are natively written Azure Resource Manager (ARM) templates structured in?",
+        "options": [
+          "JavaScript",
+          "XML",
+          "HTML",
+          "JSON (JavaScript Object Notation)"
+        ],
+        "answer": "JSON (JavaScript Object Notation)",
+        "explanation": "Native **ARM Templates** are written in **JSON**, which uses a declarative syntax to define what resources you intend to deploy.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/syntax"
+      },
+      {
+        "type": "tf",
+        "question": "ARM Templates follow an imperative paradigm, meaning you must write code detailing the exact sequence of commands to execute to create resources.",
+        "answer": false,
+        "explanation": "False. **ARM Templates** are **declarative**. You simply define the final desired state representing *what* you want (e.g., 'I want a VM with 4GB RAM'), and Azure figures out exactly *how* to deploy it.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "term": "Azure Virtual Machines (VMs)",
+    "category": "Compute Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your company is migrating a legacy application to Azure. The application requires custom software installations and precise control over the underlying operating system configurations. Which Azure compute service should you choose?",
+        "options": [
+          "Azure App Service",
+          "Azure Virtual Machines (VMs)",
+          "Azure Functions",
+          "Azure Container Instances (ACI)"
+        ],
+        "answer": "Azure Virtual Machines (VMs)",
+        "explanation": "**Azure Virtual Machines** provide Infrastructure as a Service (IaaS), giving you full control over the operating system and installed software.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/overview"
+      },
+      {
+        "type": "simple",
+        "question": "Which cloud service model best describes Azure Virtual Machines?",
+        "options": [
+          "Software as a Service (SaaS)",
+          "Platform as a Service (PaaS)",
+          "Infrastructure as a Service (IaaS)",
+          "Function as a Service (FaaS)"
+        ],
+        "answer": "Infrastructure as a Service (IaaS)",
+        "explanation": "Azure VMs act as **Infrastructure as a Service (IaaS)**. Microsoft manages the physical hardware, but you are responsible for managing the OS, middleware, and applications.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/overview"
+      },
+      {
+        "type": "tf",
+        "question": "With Azure Virtual Machines, you are not responsible for installing operating system security patches.",
+        "answer": false,
+        "explanation": "False. As an IaaS offering, you have full control over the VM, meaning you are completely responsible for patching and securing the guest operating system.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/maintenance-and-updates"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "term": "Azure Virtual Machine Scale Sets (VMSS)",
+    "category": "Compute Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your e-commerce application experiences highly unpredictable traffic spikes during holiday sales. You want the system to automatically deploy identical copies of your servers to handle increased load, without manual intervention. What should you use?",
+        "options": [
+          "Azure App Service",
+          "Azure Kubernetes Service (AKS)",
+          "Azure Virtual Machine Scale Sets (VMSS)",
+          "Azure Virtual Desktop (AVD)"
+        ],
+        "answer": "Azure Virtual Machine Scale Sets (VMSS)",
+        "explanation": "**Virtual Machine Scale Sets** allow you to create and manage a group of load-balanced, identical VMs that can automatically scale up or down in response to demand.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview"
+      },
+      {
+        "type": "simple",
+        "question": "What is the primary benefit of using Azure Virtual Machine Scale Sets?",
+        "options": [
+          "To host containerized microservices natively without virtual machines.",
+          "To provide remote desktop environments to your employees.",
+          "To automatically deploy and manage a massive group of identical, load-balanced virtual machines.",
+          "To execute serverless code based on events."
+        ],
+        "answer": "To automatically deploy and manage a massive group of identical, load-balanced virtual machines.",
+        "explanation": "VMSS simplifies the management of multiple VMs by treating them as a single grouped resource that automatically scales based on predefined metrics.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview"
+      },
+      {
+        "type": "tf",
+        "question": "Virtual Machine Scale Sets require you to manually pre-provision all possible virtual machines your application might ever need in advance.",
+        "answer": false,
+        "explanation": "False. VMSS dynamically scales in and out. VMs are created automatically when demand increases and destroyed when demand drops, preventing you from over-provisioning.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "term": "Azure App Service",
+    "category": "Compute Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "You are leading a team of developers who have written a new web application in .NET. They want to host this application on Azure but do not want to manage underlying servers, worry about OS updates, or manually configure load balancing. What Azure service optimally fits these requirements?",
+        "options": [
+          "Azure Virtual Machines",
+          "Azure Virtual Desktop",
+          "Azure App Service",
+          "Azure Functions"
+        ],
+        "answer": "Azure App Service",
+        "explanation": "**Azure App Service** is a fully managed HTTP-based service for hosting web applications, REST APIs, and mobile back ends, removing the burden of server management.",
+        "link": "https://learn.microsoft.com/en-us/azure/app-service/overview"
+      },
+      {
+        "type": "simple",
+        "question": "Azure App Service is primarily classified as which type of cloud service?",
+        "options": [
+          "Infrastructure as a Service (IaaS)",
+          "Platform as a Service (PaaS)",
+          "Software as a Service (SaaS)",
+          "Data as a Service (DaaS)"
+        ],
+        "answer": "Platform as a Service (PaaS)",
+        "explanation": "As a **PaaS** offering, Azure manages the infrastructure and the application runtime platform, allowing you to focus solely on deploying your code.",
+        "link": "https://learn.microsoft.com/en-us/azure/app-service/overview"
+      },
+      {
+        "type": "tf",
+        "question": "Azure App Service natively supports automatic scaling, high availability, and automated deployments from GitHub.",
+        "answer": true,
+        "explanation": "True. Azure App Service comes with built-in features for CI/CD, auto-scaling, and high availability, making it ideal for modern web apps.",
+        "link": "https://learn.microsoft.com/en-us/azure/app-service/overview"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "term": "Azure Functions",
+    "category": "Compute Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Every time a user uploads a profile picture to your Azure storage bucket, a small script needs to run to compress the image. You only want to pay for the exact milliseconds the compression script is running without maintaining a server 24/7. Which compute service is best suited for this?",
+        "options": [
+          "Azure Functions",
+          "Azure App Service",
+          "Azure Virtual Machines",
+          "Azure Kubernetes Service (AKS)"
+        ],
+        "answer": "Azure Functions",
+        "explanation": "**Azure Functions** is an event-driven, serverless compute service that runs code instantly on-demand and bills only for the time the code is actively executing.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview"
+      },
+      {
+        "type": "simple",
+        "question": "Which architecture pattern does Azure Functions primarily facilitate?",
+        "options": [
+          "Monolithic Architectures",
+          "Serverless Computing",
+          "Desktop Virtualization",
+          "Heavy Infrastructure as a Service"
+        ],
+        "answer": "Serverless Computing",
+        "explanation": "Azure Functions is Microsoft's primary **Serverless** compute offering, abstracting the infrastructure entirely away from the developer.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview"
+      },
+      {
+        "type": "tf",
+        "question": "With Azure Functions, you must manually select the operating system and allocate physical memory for the servers running your code.",
+        "answer": false,
+        "explanation": "False. In a serverless architecture like **Azure Functions**, the cloud provider handles all underlying server provisioning, OS selection, and scaling completely automatically.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "term": "Azure Container Instances (ACI)",
+    "category": "Compute Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your team has containerized a single background task using Docker. You want to run this container in Azure as quickly as possible without learning a complex orchestration tool or managing a cluster of virtual machines. What is the fastest and simplest way to run this container in Azure?",
+        "options": [
+          "Azure Kubernetes Service (AKS)",
+          "Azure Container Instances (ACI)",
+          "Azure Virtual Machines",
+          "Azure Functions"
+        ],
+        "answer": "Azure Container Instances (ACI)",
+        "explanation": "**Azure Container Instances** offers the fastest and simplest way to run a container in Azure, providing a serverless container environment without needing to provision an entire cluster.",
+        "link": "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-overview"
+      },
+      {
+        "type": "simple",
+        "question": "What is Azure Container Instances (ACI) best suited for?",
+        "options": [
+          "Deploying simple applications, task automation, or build jobs isolated within a container.",
+          "Hosting an entire enterprise desktop environment.",
+          "Orchestrating hundreds of interconnected microservice containers at global scale.",
+          "Running older operating systems natively."
+        ],
+        "answer": "Deploying simple applications, task automation, or build jobs isolated within a container.",
+        "explanation": "ACI is perfect for fast, isolated, and relatively simple container workloads that do not require full-blown orchestration.",
+        "link": "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-overview"
+      },
+      {
+        "type": "tf",
+        "question": "Azure Container Instances require you to deploy and manage a network of underlying Virtual Machines to act as host nodes.",
+        "answer": false,
+        "explanation": "False. ACI is a serverless offering. Azure manages the underlying infrastructure so you only have to think about the container itself.",
+        "link": "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-overview"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "term": "Azure Kubernetes Service (AKS)",
+    "category": "Compute Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "An enterprise is planning to deploy a complex, highly scalable microservices architecture composed of over 50 different containers. They require advanced self-healing, automated rollouts, service discovery, and load balancing across all containers. Which Azure service should they implement?",
+        "options": [
+          "Azure Kubernetes Service (AKS)",
+          "Azure Container Instances (ACI)",
+          "Azure App Service",
+          "Azure Virtual Desktop"
+        ],
+        "answer": "Azure Kubernetes Service (AKS)",
+        "explanation": "**Azure Kubernetes Service** is a robust, managed orchestration service for complex, multi-container deployments demanding scalable and resilient microservices architecture.",
+        "link": "https://learn.microsoft.com/en-us/azure/aks/intro-kubernetes"
+      },
+      {
+        "type": "simple",
+        "question": "What is a main advantage of using Azure Kubernetes Service (AKS) over manually installing Kubernetes on Azure Virtual Machines?",
+        "options": [
+          "AKS uses a proprietary Microsoft orchestration engine instead of open-source Kubernetes.",
+          "AKS eliminates the need for containers, running code natively instead.",
+          "Azure manages the complex Kubernetes control plane nodes for free, reducing operational overhead.",
+          "AKS is fully offline and requires no internet connection."
+        ],
+        "answer": "Azure manages the complex Kubernetes control plane nodes for free, reducing operational overhead.",
+        "explanation": "In AKS, Microsoft handles the health and maintenance of the master nodes (control plane). You only manage the worker nodes that actually run your applications.",
+        "link": "https://learn.microsoft.com/en-us/azure/aks/intro-kubernetes"
+      },
+      {
+        "type": "tf",
+        "question": "Azure Kubernetes Service (AKS) allows you to automatically scale the number of underlying worker nodes based on traffic demands.",
+        "answer": true,
+        "explanation": "True. AKS supports the Cluster Autoscaler, which dynamically increases or decreases the number of Virtual Machines (nodes) to meet your containers' demands.",
+        "link": "https://learn.microsoft.com/en-us/azure/aks/intro-kubernetes"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "term": "Azure Virtual Desktop (AVD)",
+    "category": "Compute Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Due to a sudden shift to remote work, your company must urgently provide 500 employees with secure access to corporate Windows 11 desktops and Office 365 applications, accessible from their personal at-home laptops. What Azure solution addresses this?",
+        "options": [
+          "Azure Virtual Desktop (AVD)",
+          "Azure Virtual Machine Scale Sets",
+          "Azure App Service",
+          "Azure Functions"
+        ],
+        "answer": "Azure Virtual Desktop (AVD)",
+        "explanation": "**Azure Virtual Desktop** is a desktop and app virtualization service that runs in the cloud, allowing users to safely remote into full Windows environments.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-desktop/overview"
+      },
+      {
+        "type": "simple",
+        "question": "Which unique feature is exclusive to Azure Virtual Desktop when deploying Windows 10 or Windows 11?",
+        "options": [
+          "The ability to host static HTML web pages.",
+          "Multi-session capabilities, allowing multiple concurrent users on a single desktop OS VM.",
+          "Serverless event-driven code execution.",
+          "Container orchestration via Kubernetes."
+        ],
+        "answer": "Multi-session capabilities, allowing multiple concurrent users on a single desktop OS VM.",
+        "explanation": "AVD is uniquely licensed and capable of running Windows 10/11 Enterprise multi-session, greatly reducing infrastructure costs by consolidating users.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-desktop/overview"
+      },
+      {
+        "type": "tf",
+        "question": "Azure Virtual Desktop can only be accessed by users operating a Windows computer; it is incompatible with Macs or tablets.",
+        "answer": false,
+        "explanation": "False. Clients exist for Windows, macOS, iOS, Android, and even a universal HTML5 web client, meaning you can access AVD from nearly any modern device.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-desktop/overview"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "term": "Azure Virtual Network (VNet)",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "You are deploying multiple virtual machines in Azure that need to communicate with each other securely over a private IP space, entirely isolated from the public internet. What is the fundamental Azure resource you must create first to provide this capability?",
+        "options": [
+          "Azure Content Delivery Network",
+          "Azure Virtual Network (VNet)",
+          "Azure Load Balancer",
+          "Azure ExpressRoute"
+        ],
+        "answer": "Azure Virtual Network (VNet)",
+        "explanation": "An **Azure Virtual Network (VNet)** is the fundamental building block for your private network in Azure, allowing resources to securely communicate with each other, the internet, and on-premises networks.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview"
+      },
+      {
+        "type": "simple",
+        "question": "What is the primary purpose of an Azure Virtual Network (VNet)?",
+        "options": [
+          "To provide a fully managed domain name resolution service.",
+          "To securely connect Azure resources to each other and provide a logically isolated private network environment.",
+          "To balance incoming internet traffic across multiple servers.",
+          "To cache static web content globally for faster delivery."
+        ],
+        "answer": "To securely connect Azure resources to each other and provide a logically isolated private network environment.",
+        "explanation": "VNets enable Azure resources like VMs to securely communicate with each other in an isolated, private network environment.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview"
+      },
+      {
+        "type": "tf",
+        "question": "By default, virtual machines deployed within the exact same Azure Virtual Network can communicate with each other completely free of charge and without any additional routing configuration.",
+        "answer": true,
+        "explanation": "True. Resources deployed within the same **Virtual Network** can communicate native and securely with each other by default.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "term": "Virtual Network Subnets",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "You have a large Azure Virtual Network assigned the IP space 10.0.0.0/16. You want to logically separate your web servers from your database servers so you can apply different security rules to each group. What should you create within your VNet to achieve this?",
+        "options": [
+          "Virtual Network Peering",
+          "Virtual Network Subnets",
+          "Azure ExpressRoute",
+          "Azure DNS Zones"
+        ],
+        "answer": "Virtual Network Subnets",
+        "explanation": "**Subnets** allow you to segment the Virtual Network into one or more logically separated sub-networks, enabling you to isolate resources and apply independent Network Security Groups (NSGs).",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet"
+      },
+      {
+        "type": "simple",
+        "question": "What is an Azure Virtual Network Subnet?",
+        "options": [
+          "A dedicated physical router placed in a Microsoft datacenter.",
+          "A dedicated, private connection to on-premises networks.",
+          "A segmented range of IP addresses within a Virtual Network that helps organize and secure resources logically.",
+          "The public IP address assigned to an Azure Virtual Machine."
+        ],
+        "answer": "A segmented range of IP addresses within a Virtual Network that helps organize and secure resources logically.",
+        "explanation": "A **Subnet** takes the large IP address space of a VNet and chunks it into smaller, manageable, and secure ranges.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet"
+      },
+      {
+        "type": "tf",
+        "question": "An individual Azure Virtual Network must contain at least one Subnet before you can deploy any virtual machines into it.",
+        "answer": true,
+        "explanation": "True. You cannot deploy resources directly into a VNet broadly; they must be deployed into a specific **Subnet** within that VNet.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "term": "Virtual Network Peering",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your company merged with another startup. You have a Virtual Network in the 'East US' region, and the startup has their own Virtual Network in the 'West US' region. You need virtual machines in both networks to communicate with each other securely using Microsoft's private network backbone. What feature easily accomplishes this?",
+        "options": [
+          "Azure VPN Gateway",
+          "Azure ExpressRoute",
+          "Virtual Network Peering",
+          "Azure Public Endpoints"
+        ],
+        "answer": "Virtual Network Peering",
+        "explanation": "**Virtual Network Peering** seamlessly connects two Azure Virtual Networks. Once peered, the virtual networks appear as one, and traffic uses the Microsoft backbone network—not the public internet.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview"
+      },
+      {
+        "type": "simple",
+        "question": "Which statement accurately describes Virtual Network Peering in Azure?",
+        "options": [
+          "It connects an Azure VNet to an on-premises datacenter using a physical third-party cable network.",
+          "It connects two Azure VNets together privately, enabling resources in either VNet to communicate natively.",
+          "It publishes an internal database securely to the public internet.",
+          "It balances HTTP traffic globally across different Azure Datacenters."
+        ],
+        "answer": "It connects two Azure VNets together privately, enabling resources in either VNet to communicate natively.",
+        "explanation": "**VNet Peering** connects two VNets, allowing seamless, high-bandwidth data transfer between them using Microsoft's private infrastructure.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview"
+      },
+      {
+        "type": "tf",
+        "question": "When connecting two Virtual Networks in completely different global regions using Global VNet Peering, the traffic is routed over the public internet.",
+        "answer": false,
+        "explanation": "False. Even with **Global VNet Peering**, traffic between the two interconnected networks stays completely on Microsoft's private global backbone network and never traverses the public internet.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "term": "Azure DNS",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your marketing team registered the custom domain name 'contoso.com' with an external registrar. They want to host the domain's DNS records, like A records and CNAMEs, on Azure to take advantage of Azure's global footprint, high availability, and unified management portal. Which service handles this?",
+        "options": [
+          "Azure Active Directory Domains",
+          "Azure Load Balancer",
+          "Azure Application Gateway",
+          "Azure DNS"
+        ],
+        "answer": "Azure DNS",
+        "explanation": "**Azure DNS** is a hosting service for DNS domains that provides name resolution using Microsoft Azure infrastructure.",
+        "link": "https://learn.microsoft.com/en-us/azure/dns/dns-overview"
+      },
+      {
+        "type": "simple",
+        "question": "What primary function does Azure DNS provide?",
+        "options": [
+          "Registering completely new, previously unowned domain names on your behalf.",
+          "Hosting DNS zones and records, answering queries with high availability and speed using Azure's global network.",
+          "Securing virtual machine inbound ports from malicious activity.",
+          "Providing a completely private network for your Azure virtual machines."
+        ],
+        "answer": "Hosting DNS zones and records, answering queries with high availability and speed using Azure's global network.",
+        "explanation": "Azure DNS provides reliable domain name resolution and manages your DNS records using the same credentials, APIs, and billing as your other Azure services.",
+        "link": "https://learn.microsoft.com/en-us/azure/dns/dns-overview"
+      },
+      {
+        "type": "tf",
+        "question": "Azure manages its own global network of DNS servers, guaranteeing 100% availability for your domain name resolution if hosted on Azure DNS.",
+        "answer": true,
+        "explanation": "True. Microsoft backs **Azure DNS** with a 100% availability SLA for valid DNS requests.",
+        "link": "https://learn.microsoft.com/en-us/azure/dns/dns-overview"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "term": "Azure VPN Gateway",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your corporate office needs to connect securely to an Azure Virtual Network. Employees are working on-site, and you need to establish an encrypted tunnel over the public internet from your physical office router to Azure. What Azure service is strictly required?",
+        "options": [
+          "Azure VPN Gateway",
+          "Azure ExpressRoute",
+          "Azure Application Gateway",
+          "Azure Load Balancer"
+        ],
+        "answer": "Azure VPN Gateway",
+        "explanation": "An **Azure VPN Gateway** is a specific type of virtual network gateway that sends encrypted traffic between an Azure virtual network and an on-premises location over the public internet.",
+        "link": "https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways"
+      },
+      {
+        "type": "simple",
+        "question": "Which of the following scenarios is Azure VPN Gateway best suited for?",
+        "options": [
+          "Connecting two Azure Virtual Networks in identical regions without using the internet.",
+          "Establishing a secure, encrypted connection between an on-premises datacenter and Azure over the public internet.",
+          "Establishing a dedicated, private, unencrypted fiber connection to Azure.",
+          "Balancing Layer 7 HTTP traffic across regional web servers."
+        ],
+        "answer": "Establishing a secure, encrypted connection between an on-premises datacenter and Azure over the public internet.",
+        "explanation": "A **VPN Gateway** creates an encrypted IPsec/IKE tunnel over the public internet, securing traffic traveling between Azure and your local network.",
+        "link": "https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways"
+      },
+      {
+        "type": "tf",
+        "question": "Because an Azure VPN Gateway utilizes the public internet, Microsoft guarantees consistent, predictable network latency at all times.",
+        "answer": false,
+        "explanation": "False. Because a VPN Gateway relies on the **public internet**, which is inherently unpredictable, latency and throughput can vary and are not guaranteed.",
+        "link": "https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "term": "Azure ExpressRoute",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "A financial institution requires a connection from their on-premises datacenter to Azure. Due to strict security and performance regulations, this connection must guarantee high speed, consistent latency, and absolutely cannot use the public internet. What is the required solution?",
+        "options": [
+          "Azure ExpressRoute",
+          "Azure VPN Gateway",
+          "Virtual Network Peering",
+          "Azure Content Delivery Network"
+        ],
+        "answer": "Azure ExpressRoute",
+        "explanation": "**Azure ExpressRoute** provides a highly reliable and secure connection to Microsoft cloud services over a dedicated, private line furnished by a connectivity provider, entirely bypassing the public internet.",
+        "link": "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction"
+      },
+      {
+        "type": "simple",
+        "question": "What is the primary difference between Azure ExpressRoute and Azure VPN Gateway?",
+        "options": [
+          "ExpressRoute is for web traffic only, while VPN Gateway is for databases.",
+          "ExpressRoute connects two VNets together, while VPN Gateway connects to on-premises.",
+          "ExpressRoute uses a private, dedicated connection, whereas VPN Gateway sends encrypted traffic over the public internet.",
+          "ExpressRoute is significantly slower and less secure than a VPN Gateway."
+        ],
+        "answer": "ExpressRoute uses a private, dedicated connection, whereas VPN Gateway sends encrypted traffic over the public internet.",
+        "explanation": "The core differentiator is the medium: **VPN Gateway** uses the public internet (encrypted), while **ExpressRoute** uses a dedicated private line (bypassing the internet).",
+        "link": "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction"
+      },
+      {
+        "type": "tf",
+        "question": "Azure ExpressRoute connections are facilitated directly by Microsoft sending an engineer to physically wire a connection to your building.",
+        "answer": false,
+        "explanation": "False. **ExpressRoute** connections are facilitated by a third-party connectivity provider (an ISP or exchange provider), not directly by Microsoft personnel installing cables at your site.",
+        "link": "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "term": "Azure Public Endpoints",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "You have deployed an Azure Storage Account to host public images for your new social media website. Visitors must be able to load these images directly from their web browsers from any location on Earth. How are these images accessed by default?",
+        "options": [
+          "Azure Private Endpoints",
+          "Azure ExpressRoute",
+          "Azure Public Endpoints",
+          "Virtual Network Peering"
+        ],
+        "answer": "Azure Public Endpoints",
+        "explanation": "Many Azure PaaS services, like Storage Accounts and Azure SQL, are provisioned entirely with a **Public Endpoint** by default, allowing internet accessibility (if authentication allows).",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-network/public-ip-addresses"
+      },
+      {
+        "type": "simple",
+        "question": "Which of the following best describes an Azure Public Endpoint?",
+        "options": [
+          "An IP address reachable only from resources inside your specific Virtual Network.",
+          "An IP address exposed to the internet, allowing direct outside connectivity.",
+          "A secure tunnel to your on-premises datacenter.",
+          "A physical networking interface card attached to a virtual machine."
+        ],
+        "answer": "An IP address exposed to the internet, allowing direct outside connectivity.",
+        "explanation": "A **Public Endpoint** simply means the resource natively has a public IP and URI that can receive traffic directly routed from the public internet.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-network/public-ip-addresses"
+      },
+      {
+        "type": "tf",
+        "question": "When a resource uses a Public Endpoint, it inherently means that anyone on the internet can freely access the data stored within it without any authentication.",
+        "answer": false,
+        "explanation": "False. Having a **Public Endpoint** simply means the logical network door is accessible from the internet. The data itself is still protected by identity and authentication protocols (like RBAC or API keys).",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-network/public-ip-addresses"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "term": "Azure Private Endpoints",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your company has a strict security policy requiring that all database traffic strictly avoids the public internet. You are using Azure SQL Database, which has a public endpoint by default. How can you securely project this database directly into your Virtual Network assigning it a private IP address from your subnet?",
+        "options": [
+          "Virtual Network Peering",
+          "Azure Public IP Addresses",
+          "Azure Private Endpoints",
+          "Azure DNS Zones"
+        ],
+        "answer": "Azure Private Endpoints",
+        "explanation": "An **Azure Private Endpoint** uses Private Link technology to pull an Azure managed service (like SQL or Storage) directly into your Virtual Network, giving it a private IP address and completely disabling internet access to the resource.",
+        "link": "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview"
+      },
+      {
+        "type": "simple",
+        "question": "What is the primary benefit of deploying an Azure Private Endpoint for an Azure PaaS service?",
+        "options": [
+          "It forces all traffic to that service over the public internet for global load balancing.",
+          "It prevents internet access entirely, allowing the service to securely communicate only on a private Azure VNet IP address.",
+          "It accelerates the deployment time of the PaaS service.",
+          "It allows the PaaS service to bypass all authentication requirements."
+        ],
+        "answer": "It prevents internet access entirely, allowing the service to securely communicate only on a private Azure VNet IP address.",
+        "explanation": "**Private Endpoints** secure PaaS services by effectively hiding them from the internet and bridging them intimately into your private VNet utilizing internal IP addresses.",
+        "link": "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview"
+      },
+      {
+        "type": "tf",
+        "question": "By setting up an Azure Private Endpoint for an Azure Storage Account, traffic traveling from your Virtual Machine to the Storage Account never crosses the public internet.",
+        "answer": true,
+        "explanation": "True. Traffic flows securely over the Microsoft backbone directly from the VNet straight to the Storage account strictly using private IP routing.",
+        "link": "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "term": "Azure Load Balancer",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "You have three virtual machines hosting a multiplayer game server. You need to distribute incoming TCP and UDP network traffic evenly across these three servers to ensure no single server is overwhelmed. What Azure service operates at Layer 4 to achieve this?",
+        "options": [
+          "Azure Application Gateway",
+          "Azure Load Balancer",
+          "Azure Content Delivery Network",
+          "Azure DNS"
+        ],
+        "answer": "Azure Load Balancer",
+        "explanation": "**Azure Load Balancer** operates at Layer 4 (Transport layer) of the OSI model and distributes inbound network traffic (TCP/UDP) evenly across multiple backend resources, like VMs.",
+        "link": "https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview"
+      },
+      {
+        "type": "simple",
+        "question": "Which of the following is a characteristic of Azure Load Balancer?",
+        "options": [
+          "It analyzes HTTP headers to route traffic to specific servers.",
+          "It acts as a Web Application Firewall.",
+          "It distributes traffic across multiple instances to provide high availability and network performance.",
+          "It caches video files geographically."
+        ],
+        "answer": "It distributes traffic across multiple instances to provide high availability and network performance.",
+        "explanation": "An **Azure Load Balancer** improves application responsiveness and availability by intelligently distributing incoming network requests across a backend pool of targets.",
+        "link": "https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview"
+      },
+      {
+        "type": "tf",
+        "question": "Azure Load Balancer can inspect the contents of an HTTP request, like the URL path, and route traffic based specifically on that URL.",
+        "answer": false,
+        "explanation": "False. **Azure Load Balancer** operates at Layer 4, meaning it only understands IP addresses and TCP/UDP ports. It cannot see or understand Layer 7 HTTP properties like URLs. For that, you need an Application Gateway.",
+        "link": "https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "term": "Azure Application Gateway",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your company runs a complex e-commerce website. You have one set of servers rendering images and a different set of servers handling the shopping cart. You need a load balancer that can inspect HTTP request URLs. If the user requests '/images', route to the image servers; if '/cart', route to the cart servers. What Azure service can do this?",
+        "options": [
+          "Azure Load Balancer",
+          "Azure Traffic Manager",
+          "Azure Application Gateway",
+          "Azure ExpressRoute"
+        ],
+        "answer": "Azure Application Gateway",
+        "explanation": "**Azure Application Gateway** operates at Layer 7 (Application layer), meaning it can understand HTTP traffic. This allows it to perform complex routing decisions based on URL paths, host headers, and more.",
+        "link": "https://learn.microsoft.com/en-us/azure/application-gateway/overview"
+      },
+      {
+        "type": "simple",
+        "question": "What feature makes Azure Application Gateway distinctly different from Azure Load Balancer?",
+        "options": [
+          "Application Gateway is strictly for private, internal networks, while Load Balancer is public.",
+          "Application Gateway operates at Layer 7 and can route traffic based on HTTP/URI properties, while Load Balancer operates at Layer 4 (IP/Port).",
+          "Application Gateway is a physical appliance placed on premises.",
+          "Application Gateway only supports Azure virtual machines."
+        ],
+        "answer": "Application Gateway operates at Layer 7 and can route traffic based on HTTP/URI properties, while Load Balancer operates at Layer 4 (IP/Port).",
+        "explanation": "**Application Gateway** is a web traffic load balancer (Layer 7), enabling advanced features like URL-based routing, SSL termination, and a Web Application Firewall.",
+        "link": "https://learn.microsoft.com/en-us/azure/application-gateway/overview"
+      },
+      {
+        "type": "tf",
+        "question": "You can add an optional Web Application Firewall (WAF) directly to your Azure Application Gateway to actively protect your web apps from common exploits like SQL injection and cross-site scripting.",
+        "answer": true,
+        "explanation": "True. The **Web Application Firewall (WAF)** is a native feature available on the Application Gateway that intrinsically protects your site from malicious attacks at Layer 7.",
+        "link": "https://learn.microsoft.com/en-us/azure/web-application-firewall/ag/ag-overview"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "term": "Azure Content Delivery Network (CDN)",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Users in Japan are complaining that your company's training videos form a website hosted in New York are buffering slowly. You want to store cached copies of these heavy video files on Microsoft edge servers geographically closer to your Japanese users to drastically decrease load times. What should you enable?",
+        "options": [
+          "Azure VPN Gateway",
+          "Azure App Service",
+          "Azure Content Delivery Network (CDN)",
+          "Azure Load Balancer"
+        ],
+        "answer": "Azure Content Delivery Network (CDN)",
+        "explanation": "An **Azure CDN** distributes heavy static content (like videos, images, and HTML files) to edge nodes around the world, drastically reducing latency by serving content to users from servers located physically near them.",
+        "link": "https://learn.microsoft.com/en-us/azure/cdn/cdn-overview"
+      },
+      {
+        "type": "simple",
+        "question": "What is the core function of the Azure Content Delivery Network (CDN)?",
+        "options": [
+          "To provide a dedicated, private connection into Azure from an internal office.",
+          "To securely isolate virtual machines into private subnets.",
+          "To cache static web content at strategically placed edge locations globally to minimize latency to end users.",
+          "To protect web applications from DDoS attacks."
+        ],
+        "answer": "To cache static web content at strategically placed edge locations globally to minimize latency to end users.",
+        "explanation": "The primary role of a **CDN** is performance optimization—taking static assets from an origin server and pushing cached copies to the absolute edge of the network right next to consumers.",
+        "link": "https://learn.microsoft.com/en-us/azure/cdn/cdn-overview"
+      },
+      {
+        "type": "tf",
+        "question": "Azure Content Delivery Network (CDN) can only be used with files hosted in an Azure Storage Account, and strongly prohibits caching content from external, non-Azure websites.",
+        "answer": false,
+        "explanation": "False. While a CDN integrates easily with Azure features like Storage or App Service, you can also use an **Azure CDN** to cache content from any publicly accessible custom origin web server, even those entirely outside of Azure.",
+        "link": "https://learn.microsoft.com/en-us/azure/cdn/cdn-overview"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "term": "Azure Storage Account",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Before you can create Azure Blob, File, Queue, or Table storage, you must first create a top-level resource that groups these data services together and provides a unique namespace for your data accessible from anywhere over HTTP or HTTPS. What is this top-level resource called?",
+        "options": [
+          "Azure Data Lake",
+          "Azure Storage Account",
+          "Azure SQL Database",
+          "Azure Key Vault"
+        ],
+        "answer": "Azure Storage Account",
+        "explanation": "An **Azure Storage Account** is the parent administrative container that holds all your Azure Storage data objects, providing a unique global namespace for your data.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview"
+      },
+      {
+        "type": "simple",
+        "question": "What function does an Azure Storage Account fundamentally serve?",
+        "options": [
+          "It is a relational database management system.",
+          "It provides a physical connection to on-premises storage arrays.",
+          "It contains all of your Azure Storage data objects and provides a globally unique namespace.",
+          "It is used exclusively to store backup copies of Virtual Machines."
+        ],
+        "answer": "It contains all of your Azure Storage data objects and provides a globally unique namespace.",
+        "explanation": "The **Storage Account** is the overarching construct containing all Blobs, Files, Queues, and Tables, determining how they are accessed and secured globally.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview"
+      },
+      {
+        "type": "tf",
+        "question": "An Azure Storage Account name must be unique across your entire specific Azure Virtual Network, but it can be duplicated across the public internet.",
+        "answer": false,
+        "explanation": "False. An **Azure Storage Account** name must be totally unique across the *entire global Azure environment* because it forms part of the public URL accessible over the internet.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "term": "Azure Blob Storage",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your application needs to securely store massive amounts of unstructured data, including text files, binary data, user-uploaded images, and raw video files directly accessible via HTTP. Which Azure Storage service is specifically optimized for this?",
+        "options": [
+          "Azure File Storage",
+          "Azure Blob Storage",
+          "Azure Disk Storage",
+          "Azure Queue Storage"
+        ],
+        "answer": "Azure Blob Storage",
+        "explanation": "**Azure Blob Storage** is Microsoft's object storage solution, designed optimally for storing massive amounts of unstructured data (data that doesn't adhere to a particular data model or definition).",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction"
+      },
+      {
+        "type": "simple",
+        "question": "What type of storage architecture does Azure Blob Storage utilize?",
+        "options": [
+          "Relational Database storage",
+          "Block-level virtual machine storage",
+          "Unstructured Object storage",
+          "Hierarchical file system storage"
+        ],
+        "answer": "Unstructured Object storage",
+        "explanation": "Blob Storage acts as massive **Object Storage**, ideal for storing isolated non-structured artifacts like pictures, videos, and log files.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction"
+      },
+      {
+        "type": "tf",
+        "question": "Azure Blob Storage can be natively used to stream video directly to an end-user's web browser.",
+        "answer": true,
+        "explanation": "True. Because Blob Storage generates direct HTTP/HTTPS URLs for objects, it is frequently used to stream video and audio directly to users.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "term": "Azure File Storage",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your company is physically lifting and shifting an old legacy application into Azure Virtual Machines. The application historically relied strictly on a local Windows Server file share using the Server Message Block (SMB) protocol. Which Azure service can seamlessly replace this file share?",
+        "options": [
+          "Azure File Storage",
+          "Azure Blob Storage",
+          "Azure Disk Storage",
+          "Azure Data Lake Storage Gen2"
+        ],
+        "answer": "Azure File Storage",
+        "explanation": "**Azure File Storage** provides fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol or Network File System (NFS) protocol.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction"
+      },
+      {
+        "type": "simple",
+        "question": "Which specific industry-standard protocol does Azure File Storage inherently support for mounting file shares?",
+        "options": [
+          "FTP (File Transfer Protocol)",
+          "SMB (Server Message Block)",
+          "TDS (Tabular Data Stream)",
+          "TCP (Transmission Control Protocol)"
+        ],
+        "answer": "SMB (Server Message Block)",
+        "explanation": "Azure Files primarily supports the **SMB** (and NFS) protocols, allowing Azure VMs and on-premises Windows/Linux machines to mount the shares natively.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction"
+      },
+      {
+        "type": "tf",
+        "question": "Azure File Storage shares can only be mounted by Azure Virtual Machines and cannot be accessed by on-premises local computers.",
+        "answer": false,
+        "explanation": "False. **Azure File shares** can be mounted concurrently by cloud deployments *and* by compliant on-premises machines connecting over the internet or ExpressRoute.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "term": "Azure Queue Storage",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "You have a frontend web application that accepts user orders, and a backend worker application that processes them. During big sales, the frontend overwhelms the backend with too many order requests. You need a simple messaging storage service to temporarily hold millions of order messages asynchronously until the backend can process them. Which service should you choose?",
+        "options": [
+          "Azure Blob Storage",
+          "Azure Table Storage",
+          "Azure Queue Storage",
+          "Azure Service Bus"
+        ],
+        "answer": "Azure Queue Storage",
+        "explanation": "**Azure Queue Storage** is explicitly designed to store large numbers of asynchronous messages that can be accessed from anywhere via HTTP/HTTPS, decoupling user-facing code from backend workers.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/queues/storage-queues-introduction"
+      },
+      {
+        "type": "simple",
+        "question": "What architectural pattern is Azure Queue Storage primarily used to facilitate?",
+        "options": [
+          "Synchronous real-time communication",
+          "Asynchronous message queuing and decoupling application components",
+          "Long-term unstructured data archiving",
+          "Relational data warehousing"
+        ],
+        "answer": "Asynchronous message queuing and decoupling application components",
+        "explanation": "**Queue Storage** acts as an async buffer between loosely coupled application components, smoothing out unpredictable traffic spikes.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/queues/storage-queues-introduction"
+      },
+      {
+        "type": "tf",
+        "question": "An individual message stored within an Azure Queue can be up to 1 Gigabyte in size.",
+        "answer": false,
+        "explanation": "False. Messages in an **Azure Queue** are intended for tiny pieces of instructional text; the maximum size of a single queue message is typically limited to 64 KB.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/queues/storage-queues-introduction"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "term": "Azure Table Storage",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your startup needs to store massive amounts of user profile data. The data does not have a strict schema, and you do not need complex SQL relationships like JOINs. You need a highly scalable NoSQL key-value store utilizing the simple Azure Storage API. What service should you use?",
+        "options": [
+          "Azure SQL Database",
+          "Azure Table Storage",
+          "Azure Queue Storage",
+          "Azure Disk Storage"
+        ],
+        "answer": "Azure Table Storage",
+        "explanation": "**Azure Table Storage** is a highly scalable, schema-less NoSQL data store for keeping simple key/attribute data securely and cheaply within an Azure Storage Account.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/tables/table-storage-overview"
+      },
+      {
+        "type": "simple",
+        "question": "Which type of database model does Azure Table Storage represent?",
+        "options": [
+          "Relational SQL Database",
+          "Graph Database",
+          "NoSQL Key-Value Data Store",
+          "Temporal Database"
+        ],
+        "answer": "NoSQL Key-Value Data Store",
+        "explanation": "Azure Tables represent a simplified **NoSQL** implementation, allowing developers to store massive amounts of entities defined by row keys and partition keys.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/tables/table-storage-overview"
+      },
+      {
+        "type": "tf",
+        "question": "Azure Table Storage enforce a rigid schema, requiring that every row in the table contains the exact same column properties.",
+        "answer": false,
+        "explanation": "False. Because it is a **NoSQL** data store, it is completely schema-less. You can legally insert entities with vastly different properties into the exact same table.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/tables/table-storage-overview"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "term": "Azure Disk Storage",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "You are deploying a new Windows Server Virtual Machine in Azure. This VM requires a dedicated 'C: Drive' to host the operating system and a 'D: Drive' to hold a large SQL Server database file natively requiring high Input/Output Operations Per Second (IOPS). Which specific Azure storage service provides these raw volumes?",
+        "options": [
+          "Azure Blob Storage",
+          "Azure File Storage",
+          "Azure Disk Storage",
+          "Azure Data Lake Storage Gen2"
+        ],
+        "answer": "Azure Disk Storage",
+        "explanation": "**Azure Disk Storage** provides block-level virtual hard drives designed explicitly to be attached and exclusively utilized by Azure Virtual Machines natively.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview"
+      },
+      {
+        "type": "simple",
+        "question": "What is an Azure Managed Disk?",
+        "options": [
+          "A massively scalable object storage endpoint.",
+          "A block-level storage volume managed by Azure and exclusively attached to an Azure Virtual Machine.",
+          "An external, physical hard drive mailed to you by Microsoft.",
+          "A networked SMB file share accessible across multiple global regions simultaneously."
+        ],
+        "answer": "A block-level storage volume managed by Azure and exclusively attached to an Azure Virtual Machine.",
+        "explanation": "Think of an **Azure Managed Disk** as the virtual equivalent of a physical hard drive plugged straight into a singular server mother board.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview"
+      },
+      {
+        "type": "tf",
+        "question": "By default, a standard Azure Managed Disk can be easily mounted to 50 active Virtual Machines simultaneously for concurrent write operations.",
+        "answer": false,
+        "explanation": "False. By default, **Managed Disks** are bound to a single VM. While specialized shared disks exist, standard Managed Disks are exclusively owned and mounted by just one VM.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "term": "Azure Storage Tiers (Hot, Cool, Archive)",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your company generates terabytes of compliance logs every year. These logs are virtually never read again, but legally must be kept for 7 years. You want the cheapest possible storage cost per gigabyte and don't care if it takes up to 15 hours to retrieve the data if requested. Which Azure Blob storage tier is appropriate?",
+        "options": [
+          "Hot Tier",
+          "Cool Tier",
+          "Archive Tier",
+          "Premium Tier"
+        ],
+        "answer": "Archive Tier",
+        "explanation": "The **Archive Tier** provides the lowest storage cost but the highest data retrieval cost and latency (taking hours to retrieve), making it ideal for rarely accessed, long-term backups.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview"
+      },
+      {
+        "type": "simple",
+        "question": "What characterize the Cool access tier in Azure Blob Storage?",
+        "options": [
+          "It is optimized for data accessed constantly, with high storage costs but free retrieval.",
+          "It requires specialized frozen hardware in unique datacenters.",
+          "It is optimized for infrequently accessed data (stored for at least 30 days), featuring lower storage costs but higher read costs compared to Hot.",
+          "Data in the Cool tier takes 15 hours to access."
+        ],
+        "answer": "It is optimized for infrequently accessed data (stored for at least 30 days), featuring lower storage costs but higher read costs compared to Hot.",
+        "explanation": "The **Cool Tier** is the middle-ground tier, cheaper to store than Hot, but slightly more expensive to read, making it great for short-term backups or older metrics data.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview"
+      },
+      {
+        "type": "tf",
+        "question": "The Hot access tier has the lowest data storage costs but the most expensive data retrieval costs.",
+        "answer": false,
+        "explanation": "False. The **Hot tier** has the *highest* storage cost per GB but the *lowest* immediate read/access costs, optimizing it for data that is actively and constantly used.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "term": "Azure Storage Redundancy (LRS, GRS, ZRS, GZRS)",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "You are creating an Azure Storage Account. You want to ensure that even if an entire Azure region (like East US) experiences a massive catastrophic failure, your data is replicated to a secondary region hundreds of miles away (like West US). Which redundancy option must you choose?",
+        "options": [
+          "Locally Redundant Storage (LRS)",
+          "Zone-Redundant Storage (ZRS)",
+          "Geo-Redundant Storage (GRS)",
+          "Availability Zone Redundancy (AZR)"
+        ],
+        "answer": "Geo-Redundant Storage (GRS)",
+        "explanation": "**Geo-Redundant Storage (GRS)** copies your data synchronously three times within a single physical location, then copies it asynchronously to a secondary paired geographical region far away.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy"
+      },
+      {
+        "type": "simple",
+        "question": "What protection does Locally Redundant Storage (LRS) provide?",
+        "options": [
+          "It replicates your data synchronously three times within a single physical datacenter.",
+          "It copies data simultaneously into three distinct Azure regions.",
+          "It creates backups of your data spanning across three separate Availability Zones.",
+          "It stores data asynchronously on your local on-premises hardware."
+        ],
+        "answer": "It replicates your data synchronously three times within a single physical datacenter.",
+        "explanation": "**LRS** provides 11 nines of durability by maintaining three identical copies of your data on separate fault domains, but specifically restricted to one single facility.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy"
+      },
+      {
+        "type": "tf",
+        "question": "Zone-Redundant storage (ZRS) protects your data exclusively against a server rack power failure, but cannot protect your data if an entire datacenter facility catches fire.",
+        "answer": false,
+        "explanation": "False. ZRS copies data across three separate Azure Availability Zones (entirely distinct physical datacenter buildings in a region). Thus, it absolutely survives a total datacenter facility failure.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "term": "Azure NetApp Files",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your enterprise company is migrating high-performance computing (HPC) workloads and massive, latency-sensitive SAP HANA database files to Azure. You require bare-metal performance, sub-millisecond latency, and enterprise-grade snapshot management utilizing NFS or SMB protocols. What specialized Azure storage service addresses this?",
+        "options": [
+          "Azure Blob Storage",
+          "Azure NetApp Files",
+          "Azure File Storage",
+          "Azure Queue Storage"
+        ],
+        "answer": "Azure NetApp Files",
+        "explanation": "**Azure NetApp Files** is an enterprise-class, high-performance, metered file storage service powered by NetApp, geared specifically for demanding core enterprise applications.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction"
+      },
+      {
+        "type": "simple",
+        "question": "What defines the value proposition of Azure NetApp Files compared to standard Azure Files?",
+        "options": [
+          "It is significantly cheaper per gigabyte for cold archiving.",
+          "It heavily utilizes the public internet to bypass ExpressRoute.",
+          "It provides extreme, bare-metal grade performance with sub-millisecond latencies for demanding enterprise applications.",
+          "It is an open-source NoSQL datastore."
+        ],
+        "answer": "It provides extreme, bare-metal grade performance with sub-millisecond latencies for demanding enterprise applications.",
+        "explanation": "**Azure NetApp Files** runs directly on dedicated, physical NetApp flash arrays in Azure Datacenters, achieving incredibly high-throughput and low-latency storage capabilities usually reserved for on-premises deployments.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction"
+      },
+      {
+        "type": "tf",
+        "question": "Azure NetApp Files requires customers to purchase physically distinct hardware from NetApp and ship it to the Microsoft Azure datacenter.",
+        "answer": false,
+        "explanation": "False. It is a fully managed first-party Azure service. While the underlying technology is NetApp, Microsoft provides it transparently as a cloud service with no hardware shipping required.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "term": "Azure Data Lake Storage Gen2",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your team of Data Scientists needs to store petabytes of raw telemetry data. They plan to use advanced big data analytics engines like Apache Spark and Azure Databricks to process the data concurrently. To maximize analytics performance, they desperately need the data organized with an internal system of hierarchical nested folders. Which Azure Storage feature must be enabled?",
+        "options": [
+          "Azure Data Lake Storage Gen2",
+          "Azure NetApp Files",
+          "Azure Blob Versioning",
+          "Azure File Storage"
+        ],
+        "answer": "Azure Data Lake Storage Gen2",
+        "explanation": "**Azure Data Lake Storage Gen2** converges the capabilities of massive object storage with a hierarchical file system, optimizing it dramatically for enterprise analytics and big data workloads.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction"
+      },
+      {
+        "type": "simple",
+        "question": "What crucial structural feature does Azure Data Lake Storage Gen2 add on top of standard Azure Blob Storage?",
+        "options": [
+          "A relational SQL querying engine.",
+          "A hierarchical namespace (true nested folder structures, not just flat string names).",
+          "A Web Application Firewall.",
+          "A built-in geographic replication function overriding user settings."
+        ],
+        "answer": "A hierarchical namespace (true nested folder structures, not just flat string names).",
+        "explanation": "Standard Blob storage mimics folders with string text slashes. **ADLS Gen2** utilizes a genuine **Hierarchical Namespace**, dramatically improving read/write speed for big data analytics frameworks by traversing real directories.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction"
+      },
+      {
+        "type": "tf",
+        "question": "Azure Data Lake Storage Gen2 is essentially a completely separate, standalone service constructed from entirely different hardware than Azure Blob Storage.",
+        "answer": false,
+        "explanation": "False. **Data Lake Storage Gen2** is actually a capability deeply integrated directly *into* Azure Blob Storage. It is activated via a simple checkbox when creating a new Blob Storage account.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "term": "Azure SQL Database",
+    "category": "Database Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your startup needs a fully managed relational database engine that handles automatic patching, backups, and high availability without any server management overhead. You require built-in AI for query tuning but do not need full native SQL Server instance-level features like precise OS control. What should you provision?",
+        "options": [
+          "SQL Server on Azure VMs",
+          "Azure Database for PostgreSQL",
+          "Azure SQL Database",
+          "Azure Cosmos DB"
+        ],
+        "answer": "Azure SQL Database",
+        "explanation": "**Azure SQL Database** is a highly scalable, fully managed Platform as a Service (PaaS) database engine that handles most database management functions natively, running the latest stable version of the SQL Server database engine.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview"
+      },
+      {
+        "type": "simple",
+        "question": "Which of the following cloud service model definitions best aligns with Azure SQL Database?",
+        "options": [
+          "Infrastructure as a Service (IaaS)",
+          "Platform as a Service (PaaS)",
+          "Software as a Service (SaaS)",
+          "Function as a Service (FaaS)"
+        ],
+        "answer": "Platform as a Service (PaaS)",
+        "explanation": "Azure SQL Database is a **PaaS** offering. Microsoft entirely maintains the underlying hardware, OS, and SQL Server software so developers simply maintain their tables and actual data.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview"
+      },
+      {
+        "type": "tf",
+        "question": "Because it is an Azure-managed service, you do not have permission to manually apply operating system level patches to an Azure SQL Database.",
+        "answer": true,
+        "explanation": "True. As a true PaaS offering, you lack OS access. Microsoft guarantees uptime and securely handles all background operating system maintenance and SQL Server patching for you.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "term": "Azure SQL Managed Instance",
+    "category": "Database Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "You are migrating a massive legacy on-premises SQL Server environment to the cloud via a 'lift and shift' strategy. The application relies heavily on complex instance-level capabilities, like CLR modules, SQL Server Agent, and cross-database querying. You want PaaS benefits but need near 100% compatibility with your old on-premises SQL Server. Which service applies?",
+        "options": [
+          "Azure SQL Database",
+          "Azure SQL Managed Instance",
+          "SQL Server on Azure VMs",
+          "Azure Cosmos DB"
+        ],
+        "answer": "Azure SQL Managed Instance",
+        "explanation": "**Azure SQL Managed Instance** provides nearly 100% compatibility with the latest SQL Server on-premises engine, maintaining legacy instance-level features while still providing the management benefits of a fully automated PaaS.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview"
+      },
+      {
+        "type": "simple",
+        "question": "What is the primary differentiator between Azure SQL Database and Azure SQL Managed Instance?",
+        "options": [
+          "Azure SQL Database is an IaaS offering, while Managed Instance is a PaaS offering.",
+          "Managed Instance provides significantly higher compatibility for migrating existing legacy on-premises SQL applications that depend on deep instance-level features.",
+          "Managed Instance strictly uses a NoSQL graph framework.",
+          "Azure SQL Database is free to use indefinitely."
+        ],
+        "answer": "Managed Instance provides significantly higher compatibility for migrating existing legacy on-premises SQL applications that depend on deep instance-level features.",
+        "explanation": "If an old local SQL app requires broad server-scoped features (like SQL Agent or Service Broker) but you still want the cloud to handle backups, **Azure SQL Managed Instance** is the required migration path.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview"
+      },
+      {
+        "type": "tf",
+        "question": "Azure SQL Managed Instance shares the same native physical server infrastructure as Microsoft 365 Exchange environments.",
+        "answer": false,
+        "explanation": "False. Azure SQL Managed Instance utilizes compute separated entirely into your own private VNet, guaranteeing isolated native performance.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "term": "Azure Cosmos DB",
+    "category": "Database Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "A massive global online gaming company needs a database to store player profiles and game session states. The database must replicate data synchronously across four different continents, guaranteeing single-digit millisecond latency for reads and writes anywhere in the world. Which database service is purposefully built for this?",
+        "options": [
+          "Azure SQL Database",
+          "Azure Database for MySQL",
+          "Azure Cosmos DB",
+          "SQL Server on Azure VMs"
+        ],
+        "answer": "Azure Cosmos DB",
+        "explanation": "**Azure Cosmos DB** is Microsoft's fully managed NoSQL database for modern app development, featuring instantaneous scaling and guaranteed single-digit millisecond speed globally.",
+        "link": "https://learn.microsoft.com/en-us/azure/cosmos-db/introduction"
+      },
+      {
+        "type": "simple",
+        "question": "Which of the following database paradigms does Azure Cosmos DB natively support?",
+        "options": [
+          "Strictly rigid relational SQL tables.",
+          "Exclusively Graph data models.",
+          "Multi-model databases, including Document (MongoDB), Key-Value, Graph (Gremlin), and Column-family formats.",
+          "In-memory temporary caching."
+        ],
+        "answer": "Multi-model databases, including Document (MongoDB), Key-Value, Graph (Gremlin), and Column-family formats.",
+        "explanation": "Cosmos DB is uniquely a **multi-model** database service. It provides native API endpoints ensuring compatibility with MongoDB, Cassandra, Gremlin, and traditional SQL APIs.",
+        "link": "https://learn.microsoft.com/en-us/azure/cosmos-db/introduction"
+      },
+      {
+        "type": "tf",
+        "question": "Azure Cosmos DB allows you to precisely configure consistency levels, choosing between absolute strict data consistency or eventual data consistency to optimize speed.",
+        "answer": true,
+        "explanation": "True. Cosmos DB provides five distinct **consistency levels** (Strong, Bounded staleness, Session, Consistent prefix, Eventual) allowing developers to precisely trade off between data sync rigidity and read/write performance.",
+        "link": "https://learn.microsoft.com/en-us/azure/cosmos-db/consistency-levels"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "term": "Azure Database for MySQL",
+    "category": "Database Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your LAMP (Linux, Apache, MySQL, PHP) stack web application currently runs on an aging local on-premises server. You want to host the database on Azure without altering any of the existing PHP codebase or changing to Microsoft SQL. You also want Azure to automate database backups. What service should you use?",
+        "options": [
+          "Azure Cosmos DB",
+          "SQL Server on Azure VMs",
+          "Azure SQL Database",
+          "Azure Database for MySQL"
+        ],
+        "answer": "Azure Database for MySQL",
+        "explanation": "**Azure Database for MySQL** provides a fully managed database using the open-source MySQL Server engine, requiring zero code changes to your existing MySQL applications.",
+        "link": "https://learn.microsoft.com/en-us/azure/mysql/overview"
+      },
+      {
+        "type": "simple",
+        "question": "What is the key advantage of utilizing Azure Database for MySQL over running a MySQL instance inside a standard Azure Virtual Machine?",
+        "options": [
+          "Azure Database for MySQL allows direct access to the Linux host OS.",
+          "Azure Database for MySQL is a PaaS that automatically handles automated backups, patching, and high availability natively.",
+          "Azure Database for MySQL converts your MySQL relationships into a NoSQL format natively.",
+          "It uses a completely different, proprietary SQL language developed solely by Microsoft."
+        ],
+        "answer": "Azure Database for MySQL is a PaaS that automatically handles automated backups, patching, and high availability natively.",
+        "explanation": "Instead of managing an IaaS Virtual Machine manually, **Azure Database for MySQL** lets Microsoft manage the operational burden (PaaS) while you just use the open-source engine.",
+        "link": "https://learn.microsoft.com/en-us/azure/mysql/overview"
+      },
+      {
+        "type": "tf",
+        "question": "Applications written specifically for MySQL require extensive query language modifications to connect to Azure Database for MySQL because it is a proprietary Microsoft variant.",
+        "answer": false,
+        "explanation": "False. It runs the **Community edition of MySQL**, meaning existing tools, drivers, and frameworks connect flawlessly with zero code changes.",
+        "link": "https://learn.microsoft.com/en-us/azure/mysql/overview"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "term": "Azure Database for PostgreSQL",
+    "category": "Database Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "You are developing a modern application that demands complex spatial data capabilities and advanced open-source database extensions like PostGIS. You want a managed cloud database service that supports these features and native JSON object processing. Which service fits best?",
+        "options": [
+          "Azure Database for MySQL",
+          "Azure SQL Managed Instance",
+          "Azure Database for PostgreSQL",
+          "Azure Table Storage"
+        ],
+        "answer": "Azure Database for PostgreSQL",
+        "explanation": "**Azure Database for PostgreSQL** is a fully managed PaaS based on the community 'PostgreSQL' database engine, renowned for handling complex data types, JSON, and geo-spatial analytics (PostGIS).",
+        "link": "https://learn.microsoft.com/en-us/azure/postgresql/overview"
+      },
+      {
+        "type": "simple",
+        "question": "Which of the following is true regarding Azure Database for PostgreSQL?",
+        "options": [
+          "It is strictly used for unstructured video file storage.",
+          "It does not support horizontal scaling.",
+          "It is a relational database service based on the open-source Postgres database engine, offering built-in high availability.",
+          "It requires customers to manually supply a Windows Server license."
+        ],
+        "answer": "It is a relational database service based on the open-source Postgres database engine, offering built-in high availability.",
+        "explanation": "Like its MySQL sibling, **Azure Database for PostgreSQL** is an enterprise-ready open-source relational database managed entirely by Azure.",
+        "link": "https://learn.microsoft.com/en-us/azure/postgresql/overview"
+      },
+      {
+        "type": "tf",
+        "question": "Azure Database for PostgreSQL natively encrypts your data both while it is transmitted over the network and while it is at rest on disks.",
+        "answer": true,
+        "explanation": "True. As a managed Azure PaaS service, **encryption-in-transit** (via TLS) and **encryption-at-rest** (via Azure Storage encryption) are enforced securely by default.",
+        "link": "https://learn.microsoft.com/en-us/azure/postgresql/concepts-security"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "term": "SQL Server on Azure VMs",
+    "category": "Database Services",
+    "questions": [
+      {
+        "type": "scenario",
+        "question": "Your company uses a highly customized third-party vendor application. The vendor categorically refuses to certify their software unless it is running on an explicitly controlled legacy version of Microsoft SQL Server (e.g., SQL Server 2012) where they maintain direct Administrator access to the Windows Server operating system. Which Azure database solution is your ONLY viable option?",
+        "options": [
+          "Azure SQL Database",
+          "SQL Server on Azure VMs",
+          "Azure SQL Managed Instance",
+          "Azure Cosmos DB"
+        ],
+        "answer": "SQL Server on Azure VMs",
+        "explanation": "**SQL Server on Azure VMs** provides complete administrative control (IaaS). You maintain full control over the specific SQL version applied and get 100% access to the underlying OS.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview"
+      },
+      {
+        "type": "simple",
+        "question": "What explicitly distinguishes 'SQL Server on Azure VMs' from 'Azure SQL Database' in terms of service models?",
+        "options": [
+          "SQL Server on VMs is a PaaS, while Azure SQL Database is an IaaS.",
+          "Both are fully managed Serverless models.",
+          "SQL Server on VMs is an Infrastructure as a Service (IaaS) offering, providing the user total OS-level control.",
+          "SQL Server on VMs does not require a database license."
+        ],
+        "answer": "SQL Server on VMs is an Infrastructure as a Service (IaaS) offering, providing the user total OS-level control.",
+        "explanation": "By putting SQL on a VM, you adopt the **IaaS** model. You get infinite customization, but inversely, you take on the tedious burden of patching the OS and maintaining SQL server manually.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview"
+      },
+      {
+        "type": "tf",
+        "question": "If you deploy SQL Server on an Azure Virtual Machine, Microsoft assumes the responsibility of monitoring the database indices and ensuring optimal SQL query performance.",
+        "answer": false,
+        "explanation": "False. In an IaaS deployment, performance tuning, indexing, backup execution, and OS patching are completely and strictly the responsibility of the customer.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview"
       }
     ]
   }

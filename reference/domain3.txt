@@ -1,0 +1,49 @@
+Cost Management
+1. Pricing Calculator
+2. TCO Calculator
+3. Azure Cost Management
+4. Spending Limits
+5. Azure Reservations
+6. Azure Hybrid Benefit
+7. Resource Tags
+8. Billing Boundary
+
+Governance and Compliance
+9. Azure Policy
+10. Policy Initiative
+11. Role-Based Access Control (RBAC)
+12. Resource Locks
+13. Microsoft Purview
+14. Service Trust Portal
+15. Azure Blueprints
+16. Zero Trust Model
+17. Defense in Depth
+18. Compliance Manager
+
+Identity and Security
+19. Microsoft Entra ID
+20. Conditional Access
+21. Multi-Factor Authentication (MFA)
+22. Single Sign-On (SSO)
+23. Passwordless Authentication
+24. Microsoft Entra External ID
+25. Microsoft Defender for Cloud
+26. Microsoft Sentinel
+
+Management and Deployment Tools
+27. Azure Portal
+28. Azure Cloud Shell
+29. Azure PowerShell
+30. Azure CLI
+31. Infrastructure as Code (IaC)
+32. ARM Templates
+33. Azure Bicep
+34. Azure Arc
+
+Monitoring and Service Health
+35. Azure Advisor
+36. Azure Monitor
+37. Log Analytics
+38. Azure Monitor Alerts
+39. Application Insights
+40. Azure Service Health

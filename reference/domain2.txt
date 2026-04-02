@@ -1,0 +1,49 @@
+Core Architecture
+1. Azure Datacenters
+2. Availability Sets
+3. Fault Domains
+4. Update Domains
+5. Geographies
+6. Azure Resource Manager (ARM) Templates
+
+Compute Services
+7. Azure Virtual Machines (VMs)
+8. Azure Virtual Machine Scale Sets (VMSS)
+9. Azure App Service
+10. Azure Functions
+11. Azure Container Instances (ACI)
+12. Azure Kubernetes Service (AKS)
+13. Azure Virtual Desktop (AVD)
+
+Networking Services
+14. Azure Virtual Network (VNet)
+15. Virtual Network Subnets
+16. Virtual Network Peering
+17. Azure DNS
+18. Azure VPN Gateway
+19. Azure ExpressRoute
+20. Azure Public Endpoints
+21. Azure Private Endpoints
+22. Azure Load Balancer
+23. Azure Application Gateway
+24. Azure Content Delivery Network (CDN)
+
+Storage Services
+25. Azure Storage Account
+26. Azure Blob Storage
+27. Azure Disk Storage
+28. Azure Files
+29. Storage Access Tiers (Hot, Cool, Cold, Archive)
+30. Locally Redundant Storage (LRS)
+31. Zone-Redundant Storage (ZRS)
+32. Geo-Redundant Storage (GRS)
+33. Azure Data Box
+34. Azure Migrate
+
+Database Services
+35. Azure SQL Database
+36. Azure SQL Managed Instance
+37. Azure Cosmos DB
+38. Azure Database for MySQL
+39. Azure Database for PostgreSQL
+40. SQL Server on Azure VMs

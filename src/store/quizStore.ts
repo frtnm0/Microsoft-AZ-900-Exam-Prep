@@ -18,7 +18,7 @@ interface KeyTerm {
 }
 
 interface QuizState {
-  domain: number | null
+  domain: number | 'complete' | null
   keyTerms: KeyTerm[]
   selectedQuestions: Question[]
   currentQuestionIndex: number
@@ -27,8 +27,9 @@ interface QuizState {
   isAnswered: boolean
   score: number
   theme: 'light' | 'dark'
-  setDomain: (domain: number) => void
+  setDomain: (domain: number | 'complete') => void
   loadKeyTerms: (keyTerms: KeyTerm[]) => void
+  loadCompleteExam: (domainsData: KeyTerm[][]) => void
   selectAnswer: (answer: string | boolean) => void
   nextQuestion: () => void
   prevQuestion: () => void
@@ -59,6 +60,33 @@ export const useQuizStore = create<QuizState>()((set, get) => ({
         set({
           domain: get().domain,
           keyTerms,
+          selectedQuestions,
+          answers: new Array(selectedQuestions.length).fill(null),
+          currentQuestionIndex: 0,
+          selectedAnswer: null,
+          isAnswered: false,
+          score: 0
+        })
+      },
+      loadCompleteExam: (domainsData) => {
+        const counts = [28, 38, 34] // Domains 1, 2, 3 weights
+        let selectedQuestions: Question[] = []
+        
+        domainsData.forEach((domainTerms, index) => {
+          const shuffledTerms = [...domainTerms].sort(() => Math.random() - 0.5)
+          const selectedTerms = shuffledTerms.slice(0, counts[index])
+          const questionsForThisDomain = selectedTerms.map(term => {
+            const randomIndex = Math.floor(Math.random() * term.questions.length)
+            const chosenQuestion = term.questions[randomIndex]
+            return { ...chosenQuestion, term: term.term, category: term.category }
+          })
+          selectedQuestions = [...selectedQuestions, ...questionsForThisDomain]
+        })
+        
+        selectedQuestions.sort(() => Math.random() - 0.5) // Shuffle combined exam
+        
+        set({
+          keyTerms: [],
           selectedQuestions,
           answers: new Array(selectedQuestions.length).fill(null),
           currentQuestionIndex: 0,
