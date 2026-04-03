@@ -1,7 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { Button } from './ui/button'
 import confetti from 'canvas-confetti'
 import { Trophy, RefreshCcw, Home } from 'lucide-react'
+import { useQuizStore } from '../store/quizStore'
 
 interface ScoreModalProps {
   score: number
@@ -13,6 +14,22 @@ interface ScoreModalProps {
 export function ScoreModal({ score, totalQuestions, onRetry, onMainMenu }: ScoreModalProps) {
   const percentage = Math.round((score / totalQuestions) * 100)
   const isPassing = percentage >= 70
+  
+  const { domain, selectedQuestions, answers } = useQuizStore()
+
+  const domainStats = useMemo(() => {
+    return [0, 1, 2].map(dIndex => {
+      let total = 0
+      let correct = 0
+      selectedQuestions.forEach((q, i) => {
+        if (q.domainIndex === dIndex) {
+          total++
+          if (answers[i] === q.answer) correct++
+        }
+      })
+      return { total, correct }
+    })
+  }, [selectedQuestions, answers])
 
   useEffect(() => {
     if (isPassing) {
@@ -71,6 +88,23 @@ export function ScoreModal({ score, totalQuestions, onRetry, onMainMenu }: Score
           <p className="mt-2 text-sm font-medium text-muted-foreground animate-fade-in opacity-0" style={{ animationFillMode: 'forwards', animationDelay: '600ms' }}>
             {score} out of {totalQuestions} correct
           </p>
+          
+          {(domain === 'easy' || domain === 'complete') && (
+            <div className="mt-6 grid grid-cols-3 gap-3 border-t border-border/50 pt-6 animate-fade-in opacity-0" style={{ animationDelay: '700ms', animationFillMode: 'forwards'}}>
+              {[0, 1, 2].map(dIndex => {
+                const stat = domainStats[dIndex];
+                if (stat.total === 0) return null;
+                const dPercentage = Math.round((stat.correct / stat.total) * 100);
+                return (
+                  <div key={dIndex} className="flex flex-col items-center p-3 rounded-xl bg-background shadow-sm border border-border/50">
+                    <span className="text-xs font-bold text-muted-foreground mb-1 uppercase tracking-wider">Domain {dIndex + 1}</span>
+                    <span className={`text-xl font-black ${dPercentage >= 70 ? 'text-green-500' : 'text-orange-500'}`}>{dPercentage}%</span>
+                    <span className="text-xs font-medium text-muted-foreground mt-1">{stat.correct}/{stat.total}</span>
+                  </div>
+                )
+              })}
+            </div>
+          )}
         </div>
 
         <div className="flex gap-3">

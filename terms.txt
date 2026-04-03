@@ -1,0 +1,40 @@
+0: High Availability
+1: Scalability
+2: Elasticity
+3: Reliability
+4: Predictability
+5: Security
+6: Governance
+7: Manageability
+8: Disaster Recovery
+9: Fault Tolerance
+10: Latency
+11: Capital Expenditure (CapEx)
+12: Operational Expenditure (OpEx)
+13: Consumption-based Model
+14: Total Cost of Ownership (TCO)
+15: Infrastructure as a Service (IaaS)
+16: Platform as a Service (PaaS)
+17: Software as a Service (SaaS)
+18: Shared Responsibility Model
+19: Serverless Computing
+20: Public Cloud
+21: Private Cloud
+22: Hybrid Cloud
+23: Multi-Cloud
+24: Regions
+25: Availability Zones
+26: Region Pairs
+27: Sovereign Regions (Azure Government/China)
+28: Resources
+29: Resource Groups
+30: Azure Resource Manager (ARM)
+31: Subscriptions
+32: Management Groups
+33: Azure Tenant
+34: Vertical Scaling (Scaling Up)
+35: Horizontal Scaling (Scaling Out)
+36: Microservices
+37: Containers
+38: Legacy Systems
+39: Cloud Migration

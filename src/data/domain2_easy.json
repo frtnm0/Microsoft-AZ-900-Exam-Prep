@@ -1,0 +1,802 @@
+[
+  {
+    "id": 0,
+    "term": "Azure Datacenters",
+    "category": "Core Architecture",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Choose the term for a physical facility that houses servers, power, and cooling for Azure.",
+        "options": [
+          "Azure Datacenters",
+          "Availability Sets",
+          "Geographies",
+          "Management Groups"
+        ],
+        "answer": "Azure Datacenters",
+        "explanation": "Azure Datacenters are the physical buildings located all over the globe that contain the hardware powering Azure services.",
+        "link": "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "term": "Availability Sets",
+    "category": "Core Architecture",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What feature groups virtual machines together in order to protect against local hardware rack failures?",
+        "options": [
+          "Availability Sets",
+          "Update Domains",
+          "Availability Zones",
+          "Virtual Networks"
+        ],
+        "answer": "Availability Sets",
+        "explanation": "An Availability Set is a logical grouping capability for isolating VM resources from each other to prevent all VMs from going down during a local hardware or network failure.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "term": "Fault Domains",
+    "category": "Core Architecture",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which logical group of underlying hardware shares a common power source and network switch?",
+        "options": [
+          "Fault Domains",
+          "Update Domains",
+          "Availability Zones",
+          "Resource Groups"
+        ],
+        "answer": "Fault Domains",
+        "explanation": "Fault domains represent a single rack of servers. If the rack loses power, only the resources in that fault domain are affected.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "term": "Update Domains",
+    "category": "Core Architecture",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What grouping determines the order in which virtual machines are selectively rebooted during planned Azure maintenance?",
+        "options": [
+          "Update Domains",
+          "Fault Domains",
+          "Availability Sets",
+          "Scale Sets"
+        ],
+        "answer": "Update Domains",
+        "explanation": "Update domains indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time without bringing down the entire system.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "term": "Geographies",
+    "category": "Core Architecture",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What Azure term refers to a discrete market, typically containing two or more regions, that focuses on data residency and compliance?",
+        "options": [
+          "Geographies",
+          "Regions",
+          "Tenants",
+          "Management Groups"
+        ],
+        "answer": "Geographies",
+        "explanation": "Geographies help ensure that data residency, sovereignty, compliance, and resiliency requirements are honored within geographical boundaries.",
+        "link": "https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "term": "Azure Resource Manager (ARM) Templates",
+    "category": "Core Architecture",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which specific service provides a way to deploy and manage infrastructure using JSON files?",
+        "options": [
+          "Azure Resource Manager (ARM) Templates",
+          "Azure CLI",
+          "Azure Policy",
+          "Azure Monitor"
+        ],
+        "answer": "Azure Resource Manager (ARM) Templates",
+        "explanation": "ARM templates are JavaScript Object Notation (JSON) files that define the infrastructure and configuration for a project natively in Azure.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "term": "Azure Virtual Machines (VMs)",
+    "category": "Compute Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "If you need total control over the operating system in the cloud, which compute service fits best?",
+        "options": [
+          "Azure Virtual Machines (VMs)",
+          "Azure App Service",
+          "Azure Functions",
+          "Azure Kubernetes Service"
+        ],
+        "answer": "Azure Virtual Machines (VMs)",
+        "explanation": "Azure Virtual Machines provide Infrastructure as a Service (IaaS), giving you complete administrative control over the guest operating system.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "term": "Azure Virtual Machine Scale Sets (VMSS)",
+    "category": "Compute Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which compute service allows you to automatically manage a group of identical, load-balanced virtual machines?",
+        "options": [
+          "Azure Virtual Machine Scale Sets (VMSS)",
+          "Azure Functions",
+          "Availability Sets",
+          "Azure Logic Apps"
+        ],
+        "answer": "Azure Virtual Machine Scale Sets (VMSS)",
+        "explanation": "VMSS lets you deploy and manage a set of identical VMs. The number of VM instances can automatically increase or decrease in response to demand.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "term": "Azure App Service",
+    "category": "Compute Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What highly utilized compute option is intended for hosting web applications and REST APIs without managing underlying servers?",
+        "options": [
+          "Azure App Service",
+          "Azure Container Instances",
+          "Azure Virtual Machines",
+          "Azure Data Factory"
+        ],
+        "answer": "Azure App Service",
+        "explanation": "App Service is a fully managed PaaS offering used to host web apps, REST APIs, and mobile back ends without managing infrastructure hardware.",
+        "link": "https://learn.microsoft.com/en-us/azure/app-service/overview"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "term": "Azure Functions",
+    "category": "Compute Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which serverless compute service is ideal for efficiently executing short snippets of event-driven code?",
+        "options": [
+          "Azure Functions",
+          "Azure Virtual Desktop",
+          "Azure App Service",
+          "Azure SQL Database"
+        ],
+        "answer": "Azure Functions",
+        "explanation": "Azure Functions is an event-driven, serverless compute service that runs code on-demand without server provisioning.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "term": "Azure Container Instances (ACI)",
+    "category": "Compute Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Choose the most direct way to run a containerized app in Azure without provisioning virtual machines or setting up a full cluster.",
+        "options": [
+          "Azure Container Instances (ACI)",
+          "Azure Kubernetes Service (AKS)",
+          "Azure App Service",
+          "Azure VM"
+        ],
+        "answer": "Azure Container Instances (ACI)",
+        "explanation": "ACI is the fastest and easiest way to run containers in Azure, without having to manage any virtual machines or adopt a higher-level orchestration service.",
+        "link": "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-overview"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "term": "Azure Kubernetes Service (AKS)",
+    "category": "Compute Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which service drastically simplifies the process of deploying and managing a highly available Kubernetes cluster?",
+        "options": [
+          "Azure Kubernetes Service (AKS)",
+          "Azure Container Instances (ACI)",
+          "Azure Virtual Machine Scale Sets",
+          "Azure DevTest Labs"
+        ],
+        "answer": "Azure Kubernetes Service (AKS)",
+        "explanation": "AKS is a highly available, secure, and fully managed Kubernetes service that significantly simplifies the deployment and management of containerized applications.",
+        "link": "https://learn.microsoft.com/en-us/azure/aks/intro-kubernetes"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "term": "Azure Virtual Desktop (AVD)",
+    "category": "Compute Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What service enables remote workers to access a full Windows virtual environment from anywhere?",
+        "options": [
+          "Azure Virtual Desktop (AVD)",
+          "Azure Bastion",
+          "Azure SQL Database",
+          "Azure Virtual Machine Scale Sets"
+        ],
+        "answer": "Azure Virtual Desktop (AVD)",
+        "explanation": "Azure Virtual Desktop is a desktop and app virtualization service that runs on the cloud, enabling users to access their desktops from any device.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-desktop/overview"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "term": "Azure Virtual Network (VNet)",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What is the foundational building block for constructing your own isolated network in the Azure environment?",
+        "options": [
+          "Azure Virtual Network (VNet)",
+          "Azure VPN Gateway",
+          "Azure DNS",
+          "Network Security Group"
+        ],
+        "answer": "Azure Virtual Network (VNet)",
+        "explanation": "Azure VNet enables many types of Azure resources, such as VMs, to securely communicate with each other, the internet, and on-premises networks.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "term": "Virtual Network Subnets",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "How can you divide a larger overall Virtual Network into smaller, more manageable IP address boundaries?",
+        "options": [
+          "Virtual Network Subnets",
+          "Azure ExpressRoute",
+          "Virtual Network Peering",
+          "Azure Bastion"
+        ],
+        "answer": "Virtual Network Subnets",
+        "explanation": "Subnets assist you in segmenting the virtual network into one or more sub-networks, helping organize and secure resources.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "term": "Virtual Network Peering",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What mechanism enables you to seamlessly connect two distinctly separated Virtual Networks?",
+        "options": [
+          "Virtual Network Peering",
+          "Azure VPN Gateway",
+          "Azure Load Balancer",
+          "Virtual Subnets"
+        ],
+        "answer": "Virtual Network Peering",
+        "explanation": "Virtual network peering enables you to seamlessly connect two or more Virtual Networks in Azure. Once peered, the networks appear as one.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "term": "Azure DNS",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which Azure feature securely hosts domain resolution, managing the mapping of names to IP addresses?",
+        "options": [
+          "Azure DNS",
+          "Azure Content Delivery Network",
+          "Azure Route Table",
+          "Azure Active Directory"
+        ],
+        "answer": "Azure DNS",
+        "explanation": "Azure DNS is a highly reliable and secure hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure.",
+        "link": "https://learn.microsoft.com/en-us/azure/dns/dns-overview"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "term": "Azure VPN Gateway",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What service transmits encrypted traffic between an Azure VNet and an on-premises location traversing the public internet?",
+        "options": [
+          "Azure VPN Gateway",
+          "Azure ExpressRoute",
+          "Azure Load Balancer",
+          "Azure Functions"
+        ],
+        "answer": "Azure VPN Gateway",
+        "explanation": "A VPN gateway sends encrypted traffic across the public internet between your on-premises network and an Azure Virtual Network.",
+        "link": "https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "term": "Azure ExpressRoute",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which connection alternative offers a dedicated, private link to Azure that completely bypasses the public internet?",
+        "options": [
+          "Azure ExpressRoute",
+          "Azure VPN Gateway",
+          "Virtual Network Peering",
+          "Azure NAT Gateway"
+        ],
+        "answer": "Azure ExpressRoute",
+        "explanation": "ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a completely private connection facilitated by a connectivity provider.",
+        "link": "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "term": "Azure Public Endpoints",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which networking scenario permits an Azure service to be directly accessed from anywhere globally on the web?",
+        "options": [
+          "Azure Public Endpoints",
+          "Azure Private Endpoints",
+          "Service Endpoints",
+          "Azure VPN Gateway"
+        ],
+        "answer": "Azure Public Endpoints",
+        "explanation": "Public endpoints mean the resource has a public IP address and is natively reachable from the internet, assuming firewalls let traffic through.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-network/public-ip-addresses"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "term": "Azure Private Endpoints",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What allocates a private IP address out of your VNet to explicitly secure a PaaS service?",
+        "options": [
+          "Azure Private Endpoints",
+          "Azure Public Endpoints",
+          "Azure ExpressRoute",
+          "Network Security Groups"
+        ],
+        "answer": "Azure Private Endpoints",
+        "explanation": "Azure Private Endpoint brings services securely into your VNet by assigning them an internal IP address.",
+        "link": "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "term": "Azure Load Balancer",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which Layer-4 utility evenly distributes incoming network traffic across multiple backend servers or virtual machines?",
+        "options": [
+          "Azure Load Balancer",
+          "Azure Application Gateway",
+          "Azure API Management",
+          "Azure Routing"
+        ],
+        "answer": "Azure Load Balancer",
+        "explanation": "Azure Load Balancer provides high-performance, ultra low-latency Layer 4 load-balancing for all UDP and TCP protocols.",
+        "link": "https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "term": "Azure Application Gateway",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Identify the Layer-7 web traffic load balancer that includes an optional Web Application Firewall (WAF).",
+        "options": [
+          "Azure Application Gateway",
+          "Azure Load Balancer",
+          "Azure Functions",
+          "Azure ExpressRoute"
+        ],
+        "answer": "Azure Application Gateway",
+        "explanation": "Azure Application Gateway is a web traffic load balancer that enables you to manage traffic specifically for web applications at OSI layer 7.",
+        "link": "https://learn.microsoft.com/en-us/azure/application-gateway/overview"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "term": "Azure Content Delivery Network (CDN)",
+    "category": "Networking Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What system accelerates the delivery of static and dynamic web content to end-users worldwide by caching it in edge nodes?",
+        "options": [
+          "Azure Content Delivery Network (CDN)",
+          "Azure ExpressRoute",
+          "Azure VPN Gateway",
+          "Azure Application Gateway"
+        ],
+        "answer": "Azure Content Delivery Network (CDN)",
+        "explanation": "A CDN offers a global solution for delivering high-bandwidth content by caching it at strategically placed physical nodes to provide maximum bandwidth.",
+        "link": "https://learn.microsoft.com/en-us/azure/cdn/cdn-overview"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "term": "Azure Storage Account",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What top-level resource provides a globally unique namespace, which is essential for storing your data objects in Azure?",
+        "options": [
+          "Azure Storage Account",
+          "Azure Virtual Machine",
+          "Resource Group",
+          "Azure Key Vault"
+        ],
+        "answer": "Azure Storage Account",
+        "explanation": "An Azure storage account contains all of your Azure Storage data objects, providing a unique namespace connected over the internet.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "term": "Azure Blob Storage",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which storage offering is heavily optimized for holding massive amounts of unstructured object data, such as images or text?",
+        "options": [
+          "Azure Blob Storage",
+          "Azure Disk Storage",
+          "Azure Data Lake",
+          "Azure SQL Database"
+        ],
+        "answer": "Azure Blob Storage",
+        "explanation": "Azure Blob Storage is Microsoft's object storage solution, optimized for storing huge amounts of unstructured data like documents, photos, or movies.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "term": "Azure Disk Storage",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Identify the block-level storage option that acts like a physical hard drive explicitly designed to be attached to an Azure VM.",
+        "options": [
+          "Azure Disk Storage",
+          "Azure Blob Storage",
+          "Azure Files",
+          "Azure Backup"
+        ],
+        "answer": "Azure Disk Storage",
+        "explanation": "Azure managed disks are block-level storage volumes that are managed by Azure and used exclusively with Azure Virtual Machines.",
+        "link": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "term": "Azure Files",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What service supplies fully managed file shares in the cloud that are concurrently accessible via the industry-standard SMB protocol?",
+        "options": [
+          "Azure Files",
+          "Azure Blob Storage",
+          "Azure Disk Storage",
+          "Azure Synapse"
+        ],
+        "answer": "Azure Files",
+        "explanation": "Azure Files offers fully managed file shares in the cloud that are accessible via the Server Message Block (SMB) protocol or Network File System (NFS) protocol.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "term": "Storage Access Tiers (Hot, Cool, Cold, Archive)",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which capability helps you dramatically reduce storage costs by altering performance thresholds based on how frequently the data is accessed?",
+        "options": [
+          "Storage Access Tiers",
+          "Redundancy Options",
+          "Azure Backup",
+          "Azure Site Recovery"
+        ],
+        "answer": "Storage Access Tiers",
+        "explanation": "Access tiers allow you to store blob data in the most cost-effective manner. Available tiers include Hot (frequent access), Cool, Cold, and Archive (rarely accessed).",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "term": "Locally Redundant Storage (LRS)",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which storage redundancy alternative gives the lowest cost by storing three copies of your data within a single physical datacenter?",
+        "options": [
+          "Locally Redundant Storage (LRS)",
+          "Zone-Redundant Storage (ZRS)",
+          "Geo-Redundant Storage (GRS)",
+          "Read-access GRS"
+        ],
+        "answer": "Locally Redundant Storage (LRS)",
+        "explanation": "LRS replicates your data three times within a single physical location in the primary region, providing the least expensive option but no protection against data center failure.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "term": "Zone-Redundant Storage (ZRS)",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What redundancy method securely copies your data synchronously across three distinct availability zones in your primary region?",
+        "options": [
+          "Zone-Redundant Storage (ZRS)",
+          "Locally Redundant Storage (LRS)",
+          "Geo-Redundant Storage (GRS)",
+          "Geo-Zone-Redundant Storage (GZRS)"
+        ],
+        "answer": "Zone-Redundant Storage (ZRS)",
+        "explanation": "ZRS provides high availability by replicating your storage account synchronously across three Azure availability zones in the primary region.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "term": "Geo-Redundant Storage (GRS)",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which option replicates your information to a paired secondary region located hundreds of miles away from the original primary region?",
+        "options": [
+          "Geo-Redundant Storage (GRS)",
+          "Locally Redundant Storage (LRS)",
+          "Zone-Redundant Storage (ZRS)",
+          "Zone-Redundant Database"
+        ],
+        "answer": "Geo-Redundant Storage (GRS)",
+        "explanation": "GRS first copies data three times within the primary region using LRS, then replicates it asynchronously to a secondary paired region.",
+        "link": "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "term": "Azure Data Box",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "If you possess terabytes of data to migrate, which physical device does Microsoft mail to you for offline copy?",
+        "options": [
+          "Azure Data Box",
+          "Azure Migrate",
+          "Azure Data Factory",
+          "Azure ExpressRoute"
+        ],
+        "answer": "Azure Data Box",
+        "explanation": "The Azure Data Box is a physical secure ruggedized device sent by Microsoft for moving massive amounts of analytics, archive, or backup data to Azure.",
+        "link": "https://learn.microsoft.com/en-us/azure/databox/data-box-overview"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "term": "Azure Migrate",
+    "category": "Storage Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What central portal offers tools and tracking for assessing and comprehensively migrating on-premises servers into Azure?",
+        "options": [
+          "Azure Migrate",
+          "Azure Data Box",
+          "Azure DevOps",
+          "Azure Site Recovery"
+        ],
+        "answer": "Azure Migrate",
+        "explanation": "Azure Migrate provides a centralized dashboard of tools to assess and migrate on-premises servers, infrastructure, applications, and data to Azure.",
+        "link": "https://learn.microsoft.com/en-us/azure/migrate/migrate-services-overview"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "term": "Azure SQL Database",
+    "category": "Database Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Identify the fully managed relational database platform built specifically for the cloud based on SQL Server.",
+        "options": [
+          "Azure SQL Database",
+          "Azure Cosmos DB",
+          "SQL Server on Azure VMs",
+          "Azure Database for MySQL"
+        ],
+        "answer": "Azure SQL Database",
+        "explanation": "Azure SQL Database is a fully managed platform as a service (PaaS) database engine that handles most database management functions autonomously.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "term": "Azure SQL Managed Instance",
+    "category": "Database Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What service yields the highest SQL Server on-premises engine compatibility while remaining a fully managed PaaS offering?",
+        "options": [
+          "Azure SQL Managed Instance",
+          "Azure SQL Database",
+          "Azure Cosmos DB",
+          "SQL Server on Azure VMs"
+        ],
+        "answer": "Azure SQL Managed Instance",
+        "explanation": "SQL Managed Instance is the intelligent, scalable cloud database service that combines the broadest SQL Server engine compatibility with all the financial and operational benefits of a fully managed PaaS.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "term": "Azure Cosmos DB",
+    "category": "Database Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which globally distributed database accommodates varied NoSQL models and guarantees single-digit millisecond response times?",
+        "options": [
+          "Azure Cosmos DB",
+          "Azure SQL Database",
+          "Azure Database for PostgreSQL",
+          "Azure Data Explorer"
+        ],
+        "answer": "Azure Cosmos DB",
+        "explanation": "Azure Cosmos DB is a fully managed NoSQL database for modern app development offering single-digit millisecond response times, global distribution, and automatic scaling.",
+        "link": "https://learn.microsoft.com/en-us/azure/cosmos-db/introduction"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "term": "Azure Database for MySQL",
+    "category": "Database Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What is the Azure managed relational database service structurally based on the widely used open-source MySQL technology?",
+        "options": [
+          "Azure Database for MySQL",
+          "Azure Cosmos DB",
+          "Azure Database for PostgreSQL",
+          "Azure SQL Database"
+        ],
+        "answer": "Azure Database for MySQL",
+        "explanation": "Azure Database for MySQL is a relational database service powered by the MySQL community edition, completely managed and offering built-in high availability.",
+        "link": "https://learn.microsoft.com/en-us/azure/mysql/single-server/overview"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "term": "Azure Database for PostgreSQL",
+    "category": "Database Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which fully managed database administration service is explicitly optimized for running PostgreSQL database workloads?",
+        "options": [
+          "Azure Database for PostgreSQL",
+          "Azure Cosmos DB",
+          "Azure Database for MySQL",
+          "Azure SQL Managed Instance"
+        ],
+        "answer": "Azure Database for PostgreSQL",
+        "explanation": "Azure Database for PostgreSQL provides a fully managed database service with high availability, automated patching, backups, and security natively built-in based on PostgreSQL.",
+        "link": "https://learn.microsoft.com/en-us/azure/postgresql/single-server/overview"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "term": "SQL Server on Azure VMs",
+    "category": "Database Services",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "If an underlying legacy application rigidly requires full administrative control over both the OS and database engine, where should you run SQL Server?",
+        "options": [
+          "SQL Server on Azure VMs",
+          "Azure SQL Managed Instance",
+          "Azure SQL Database",
+          "Azure Cosmos DB"
+        ],
+        "answer": "SQL Server on Azure VMs",
+        "explanation": "SQL Server on Azure Virtual Machines allows full control over the DB engine and the OS. It sits in the Infrastructure as a Service (IaaS) category.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview"
+      }
+    ]
+  }
+]

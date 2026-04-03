@@ -1,0 +1,802 @@
+[
+  {
+    "id": 0,
+    "term": "High Availability",
+    "category": "Cloud Benefits & Considerations",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which cloud concept ensures that services remain accessible with minimal downtime?",
+        "options": [
+          "High Availability",
+          "Scalability",
+          "Elasticity",
+          "Agility"
+        ],
+        "answer": "High Availability",
+        "explanation": "High Availability ensures your applications and services are accessible virtually all the time.",
+        "link": "https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/overview"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "term": "Scalability",
+    "category": "Cloud Benefits & Considerations",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What is the ability of a system to handle increased load by adding resources?",
+        "options": [
+          "Scalability",
+          "Governance",
+          "Latency",
+          "Disaster Recovery"
+        ],
+        "answer": "Scalability",
+        "explanation": "Scalability gives you the ability to increase computing capacity to manage higher workloads.",
+        "link": "https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "term": "Elasticity",
+    "category": "Cloud Benefits & Considerations",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which cloud feature automatically scales resources up and down based on demand?",
+        "options": [
+          "Elasticity",
+          "Predictability",
+          "CapEx",
+          "PaaS"
+        ],
+        "answer": "Elasticity",
+        "explanation": "Elasticity is the rapid and automated scaling (up and down) to meet fluctuating workload demands.",
+        "link": "https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "term": "Reliability",
+    "category": "Cloud Benefits & Considerations",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What describes a system's ability to recover from failures and continue to function?",
+        "options": [
+          "Reliability",
+          "Scalability",
+          "IaaS",
+          "Governance"
+        ],
+        "answer": "Reliability",
+        "explanation": "Reliability is the resilience of a system to recover from failures and keep performing as expected.",
+        "link": "https://learn.microsoft.com/en-us/azure/reliability/"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "term": "Predictability",
+    "category": "Cloud Benefits & Considerations",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which benefit focuses on knowing what your cloud performance and costs will be?",
+        "options": [
+          "Predictability",
+          "Elasticity",
+          "Agility",
+          "Fault Tolerance"
+        ],
+        "answer": "Predictability",
+        "explanation": "Predictability lets you accurately forecast resource performance and financial costs in the cloud.",
+        "link": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/understand-cost-mgt-handling"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "term": "Security",
+    "category": "Cloud Benefits & Considerations",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Protecting data, apps, and infrastructure in the cloud falls under which category?",
+        "options": [
+          "Security",
+          "High Availability",
+          "Scalability",
+          "CapEx"
+        ],
+        "answer": "Security",
+        "explanation": "Security provides the tools to protect digital assets, data, and access in the cloud.",
+        "link": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "term": "Governance",
+    "category": "Cloud Benefits & Considerations",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Enforcing corporate standards and regulatory compliance in the cloud defines what?",
+        "options": [
+          "Governance",
+          "Elasticity",
+          "Public Cloud",
+          "Containers"
+        ],
+        "answer": "Governance",
+        "explanation": "Governance ensures your deployment complies with corporate rules, legal standards, and cost limits.",
+        "link": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/govern/"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "term": "Manageability",
+    "category": "Cloud Benefits & Considerations",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which concept refers to efficiently deploying and tracking cloud resources?",
+        "options": [
+          "Manageability",
+          "CapEx",
+          "Fault Tolerance",
+          "Reliability"
+        ],
+        "answer": "Manageability",
+        "explanation": "Manageability lets IT administrators efficiently provision, update, and manage cloud assets.",
+        "link": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-computing/4-describe-benefits-cloud-computing"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "term": "Disaster Recovery",
+    "category": "Cloud Benefits & Considerations",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which process restores services after a catastrophic outage?",
+        "options": [
+          "Disaster Recovery",
+          "Scalability",
+          "Microservices",
+          "IaaS"
+        ],
+        "answer": "Disaster Recovery",
+        "explanation": "Disaster Recovery aims to bring systems back online quickly after major catastrophic events.",
+        "link": "https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "term": "Fault Tolerance",
+    "category": "Cloud Benefits & Considerations",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which term describes a system experiencing zero downtime during a component failure?",
+        "options": [
+          "Fault Tolerance",
+          "PaaS",
+          "CapEx",
+          "Agility"
+        ],
+        "answer": "Fault Tolerance",
+        "explanation": "Fault Tolerance implies a system will continue operating without any interruption if a piece of hardware fails.",
+        "link": "https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/overview"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "term": "Latency",
+    "category": "Cloud Benefits & Considerations",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What is the time it takes for data to travel across a network called?",
+        "options": [
+          "Latency",
+          "Bandwidth",
+          "Throughput",
+          "Scalability"
+        ],
+        "answer": "Latency",
+        "explanation": "Latency is the delay incurred by data traveling physically over a network connection.",
+        "link": "https://learn.microsoft.com/en-us/azure/networking/azure-network-latency"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "term": "Capital Expenditure (CapEx)",
+    "category": "Financial Models",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What is the upfront cost of purchasing physical infrastructure known as?",
+        "options": [
+          "Capital Expenditure (CapEx)",
+          "Operational Expenditure (OpEx)",
+          "Hybrid Cloud",
+          "TCO"
+        ],
+        "answer": "Capital Expenditure (CapEx)",
+        "explanation": "CapEx refers to spending money upfront on physical assets that depreciate over time.",
+        "link": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-computing/5-describe-capex-opex"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "term": "Operational Expenditure (OpEx)",
+    "category": "Financial Models",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which financial model involves paying for cloud services as you use them?",
+        "options": [
+          "Operational Expenditure (OpEx)",
+          "Capital Expenditure (CapEx)",
+          "IaaS",
+          "Fault Tolerance"
+        ],
+        "answer": "Operational Expenditure (OpEx)",
+        "explanation": "OpEx replaces heavy upfront hardware costs with flexible, ongoing monthly expenses based on usage.",
+        "link": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-computing/5-describe-capex-opex"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "term": "Consumption-based Model",
+    "category": "Financial Models",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which model charges you only for the exact resources you use?",
+        "options": [
+          "Consumption-based Model",
+          "CapEx",
+          "Reserved Instances",
+          "Bring Your Own License"
+        ],
+        "answer": "Consumption-based Model",
+        "explanation": "A consumption-based billing model charges strictly for what is utilized, meaning no upfront fees.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-functions/consumption-plan"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "term": "Total Cost of Ownership (TCO)",
+    "category": "Financial Models",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What metric estimates the comprehensive costs of a system over its lifetime?",
+        "options": [
+          "Total Cost of Ownership (TCO)",
+          "OpEx",
+          "CapEx",
+          "SLA"
+        ],
+        "answer": "Total Cost of Ownership (TCO)",
+        "explanation": "TCO compares all direct and indirect expenses (power, labor, etc.) to evaluate profitability over time.",
+        "link": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/understand-cost-mgt-handling"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "term": "Infrastructure as a Service (IaaS)",
+    "category": "Cloud Service Models",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which cloud model gives you the most control over virtual machines and networking?",
+        "options": [
+          "Infrastructure as a Service (IaaS)",
+          "PaaS",
+          "SaaS",
+          "Serverless"
+        ],
+        "answer": "Infrastructure as a Service (IaaS)",
+        "explanation": "IaaS lets you manage the operating system, network, and storage, just like on-premises.",
+        "link": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/2-infrastructure-as-a-service"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "term": "Platform as a Service (PaaS)",
+    "category": "Cloud Service Models",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which cloud model allows developers to deploy code without managing servers?",
+        "options": [
+          "Platform as a Service (PaaS)",
+          "IaaS",
+          "SaaS",
+          "CapEx"
+        ],
+        "answer": "Platform as a Service (PaaS)",
+        "explanation": "PaaS abstracts away server maintenance, letting teams focus strictly on their software.",
+        "link": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/3-platform-as-a-service"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "term": "Software as a Service (SaaS)",
+    "category": "Cloud Service Models",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Microsoft 365 is an example of which fully managed cloud service model?",
+        "options": [
+          "Software as a Service (SaaS)",
+          "PaaS",
+          "IaaS",
+          "Hybrid Cloud"
+        ],
+        "answer": "Software as a Service (SaaS)",
+        "explanation": "SaaS provides a complete software solution that customers simply access and use over the internet.",
+        "link": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/4-software-as-a-service"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "term": "Shared Responsibility Model",
+    "category": "Cloud Service Models",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What defines the security tasks handled by the provider versus the customer?",
+        "options": [
+          "Shared Responsibility Model",
+          "TCO",
+          "Governance",
+          "Defense in Depth"
+        ],
+        "answer": "Shared Responsibility Model",
+        "explanation": "This model divides operational and security ownership depending on whether you use IaaS, PaaS, or SaaS.",
+        "link": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "term": "Serverless Computing",
+    "category": "Cloud Service Models",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which model runs code without you having to provision or maintain any servers?",
+        "options": [
+          "Serverless Computing",
+          "IaaS",
+          "Private Cloud",
+          "CapEx"
+        ],
+        "answer": "Serverless Computing",
+        "explanation": "Serverless automatically allocates infrastructure in the background triggered by events or workloads.",
+        "link": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/5-serverless-computing"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "term": "Public Cloud",
+    "category": "Cloud Deployment Models",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which deployment model involves services offered over the internet to anyone?",
+        "options": [
+          "Public Cloud",
+          "Private Cloud",
+          "Hybrid Cloud",
+          "Multi-Cloud"
+        ],
+        "answer": "Public Cloud",
+        "explanation": "Public cloud resources are owned and operated by a third-party and accessible by the general public.",
+        "link": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-computing/3-describe-cloud-models"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "term": "Private Cloud",
+    "category": "Cloud Deployment Models",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which cloud is used exclusively by a single business or organization?",
+        "options": [
+          "Private Cloud",
+          "Public Cloud",
+          "Hybrid Cloud",
+          "Multi-Cloud"
+        ],
+        "answer": "Private Cloud",
+        "explanation": "A private cloud offers resources completely dedicated to one organization, providing more isolation.",
+        "link": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-computing/3-describe-cloud-models"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "term": "Hybrid Cloud",
+    "category": "Cloud Deployment Models",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What combines both on-premises infrastructure and public cloud services?",
+        "options": [
+          "Hybrid Cloud",
+          "Single Cloud",
+          "Serverless",
+          "SaaS"
+        ],
+        "answer": "Hybrid Cloud",
+        "explanation": "Hybrid setups share data and applications between private on-premises datacenters and the public cloud.",
+        "link": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-computing/3-describe-cloud-models"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "term": "Multi-Cloud",
+    "category": "Cloud Deployment Models",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Using services from multiple different cloud providers simultaneously is called?",
+        "options": [
+          "Multi-Cloud",
+          "Private Cloud",
+          "Hybrid Cloud",
+          "PaaS"
+        ],
+        "answer": "Multi-Cloud",
+        "explanation": "Multi-cloud architecture strategy leverages Azure, AWS, Google Cloud, etc., at the same time.",
+        "link": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/multi-cloud"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "term": "Regions",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What do we call geographical areas containing multiple Azure datacenters?",
+        "options": [
+          "Regions",
+          "Availability Zones",
+          "Resource Groups",
+          "Subscriptions"
+        ],
+        "answer": "Regions",
+        "explanation": "Regions are worldwide locations that contain connected datacenters.",
+        "link": "https://learn.microsoft.com/en-us/azure/availability-zones/az-overview"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "term": "Availability Zones",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What are physically separate datacenters within a single Azure region?",
+        "options": [
+          "Availability Zones",
+          "Regions",
+          "Tenants",
+          "Management Groups"
+        ],
+        "answer": "Availability Zones",
+        "explanation": "Availability Zones provide physical separation of datacenters to protect against localized failures.",
+        "link": "https://learn.microsoft.com/en-us/azure/availability-zones/az-overview"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "term": "Region Pairs",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Two Azure regions located in the same geography linked for disaster recovery are?",
+        "options": [
+          "Region Pairs",
+          "Availability Zones",
+          "Edge Nodes",
+          "CDN"
+        ],
+        "answer": "Region Pairs",
+        "explanation": "Region Pairs coordinate updates and failovers directly separated by hundreds of miles.",
+        "link": "https://learn.microsoft.com/en-us/azure/reliability/cross-region-replication-azure"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "term": "Sovereign Regions (Azure Government/China)",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which Azure regions are dedicated to strict legal and compliance requirements?",
+        "options": [
+          "Sovereign Regions",
+          "Availability Zones",
+          "Public Regions",
+          "Open Regions"
+        ],
+        "answer": "Sovereign Regions",
+        "explanation": "Sovereign Regions like Azure Government guarantee adherence to strict public sector compliance laws.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-welcome"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "term": "Resources",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What is the most basic building block in Azure, like a VM or database?",
+        "options": [
+          "Resources",
+          "Regions",
+          "Resource Groups",
+          "Subscriptions"
+        ],
+        "answer": "Resources",
+        "explanation": "Resources are manageable components that you deploy and consume within Azure.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "term": "Resource Groups",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which logical container holds related Azure resources for an app?",
+        "options": [
+          "Resource Groups",
+          "Regions",
+          "Management Groups",
+          "Tenants"
+        ],
+        "answer": "Resource Groups",
+        "explanation": "Resource Groups help organize resources that share the same lifecycle, permissions, and policies.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "term": "Azure Resource Manager (ARM)",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What is the deployment and management service for Azure?",
+        "options": [
+          "Azure Resource Manager (ARM)",
+          "Azure Active Directory",
+          "Azure Policy",
+          "Azure Monitor"
+        ],
+        "answer": "Azure Resource Manager (ARM)",
+        "explanation": "ARM is the management layer that lets you create, update, and delete resources using templates or API calls.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "term": "Subscriptions",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What provides the primary billing boundary for your Azure usage?",
+        "options": [
+          "Subscriptions",
+          "Resource Groups",
+          "Management Groups",
+          "Regions"
+        ],
+        "answer": "Subscriptions",
+        "explanation": "An Azure subscription is an agreement that groups resource usage to a specific billing account.",
+        "link": "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "term": "Management Groups",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What helps you manage access, policy, and compliance across multiple subscriptions?",
+        "options": [
+          "Management Groups",
+          "Resource Groups",
+          "Availability Zones",
+          "Tenants"
+        ],
+        "answer": "Management Groups",
+        "explanation": "Management Groups act as hierarchical folders organizing multiple subscriptions for unified governance.",
+        "link": "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "term": "Azure Tenant",
+    "category": "Azure Architectural Components",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What represents a dedicated and trusted instance of Microsoft Entra ID (Azure AD)?",
+        "options": [
+          "Azure Tenant",
+          "Subscription",
+          "Resource Group",
+          "Management Group"
+        ],
+        "answer": "Azure Tenant",
+        "explanation": "An Azure Tenant is your organization's specific instance of Azure active directory for managing identities.",
+        "link": "https://learn.microsoft.com/en-us/entra/fundamentals/whatis"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "term": "Vertical Scaling (Scaling Up)",
+    "category": "Scaling & Modernization",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Increasing the RAM or CPU of an existing server is an example of what?",
+        "options": [
+          "Vertical Scaling",
+          "Horizontal Scaling",
+          "Elasticity",
+          "High Availability"
+        ],
+        "answer": "Vertical Scaling",
+        "explanation": "Vertical scaling (scaling up) involves making an existing server larger or more powerful.",
+        "link": "https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "term": "Horizontal Scaling (Scaling Out)",
+    "category": "Scaling & Modernization",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Adding more virtual machines to distribute incoming traffic is called?",
+        "options": [
+          "Horizontal Scaling",
+          "Vertical Scaling",
+          "Fault Tolerance",
+          "CapEx"
+        ],
+        "answer": "Horizontal Scaling",
+        "explanation": "Horizontal scaling (scaling out) involves adding more identical servers behind a load balancer.",
+        "link": "https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "term": "Microservices",
+    "category": "Scaling & Modernization",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Breaking an application down into small, independent services represents what?",
+        "options": [
+          "Microservices",
+          "Monolith",
+          "IaaS",
+          "Legacy Systems"
+        ],
+        "answer": "Microservices",
+        "explanation": "Microservice architecture decouples monolithic applications into modular deployable micro pieces.",
+        "link": "https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/microservices"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "term": "Containers",
+    "category": "Scaling & Modernization",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What packages an application and its dependencies into a single isolated unit?",
+        "options": [
+          "Containers",
+          "Virtual Machines",
+          "Subscriptions",
+          "Regions"
+        ],
+        "answer": "Containers",
+        "explanation": "Containers virtualize the operating system to run apps reliably in any computing environment.",
+        "link": "https://learn.microsoft.com/en-us/training/modules/intro-to-containers/"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "term": "Legacy Systems",
+    "category": "Scaling & Modernization",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Older on-premises computer systems or applications are commonly referred to as?",
+        "options": [
+          "Legacy Systems",
+          "Microservices",
+          "Serverless",
+          "Native Cloud Apps"
+        ],
+        "answer": "Legacy Systems",
+        "explanation": "Legacy systems are outdated systems that organizations typically work to modernize or migrate.",
+        "link": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/azure-best-practices/"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "term": "Cloud Migration",
+    "category": "Scaling & Modernization",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "The process of moving digital assets to a cloud environment is known as?",
+        "options": [
+          "Cloud Migration",
+          "Scaling Out",
+          "Governance",
+          "CapEx"
+        ],
+        "answer": "Cloud Migration",
+        "explanation": "Cloud Migration is the strategic process of safely moving servers, data, and software off-premises to the cloud.",
+        "link": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/"
+      }
+    ]
+  }
+]

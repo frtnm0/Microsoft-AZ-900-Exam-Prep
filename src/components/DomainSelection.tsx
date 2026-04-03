@@ -3,13 +3,16 @@ import { config } from '../config'
 import domain1Data from '../data/domain1.json'
 import domain2Data from '../data/domain2.json'
 import domain3Data from '../data/domain3.json'
+import domain1EasyData from '../data/domain1_easy.json'
+import domain2EasyData from '../data/domain2_easy.json'
+import domain3EasyData from '../data/domain3_easy.json'
 import { Cloud, Server, ShieldCheck, ArrowRight, BookOpen } from 'lucide-react'
 
 // Define domain icons since they are static
 const domainIcons = [Cloud, Server, ShieldCheck]
 
 interface Question {
-  type: 'scenario' | 'simple' | 'tf'
+  type: 'scenario' | 'simple' | 'tf' | 'easy'
   question: string
   options?: string[]
   answer: string | boolean
@@ -25,18 +28,24 @@ interface KeyTerm {
 }
 
 const domainsData: KeyTerm[][] = [domain1Data as any, domain2Data as any, domain3Data as any]
+const easyDomainsData: KeyTerm[][] = [domain1EasyData as any, domain2EasyData as any, domain3EasyData as any]
 
 export function DomainSelection() {
-  const { setDomain, loadKeyTerms, loadCompleteExam } = useQuizStore()
+  const { setDomain, loadKeyTerms, loadCompleteExam, loadEasyExam } = useQuizStore()
 
   const handleSelectDomain = (index: number) => {
     setDomain(index)
     loadKeyTerms(domainsData[index])
   }
 
-  const handleSelectCompleteExam = () => {
+  const handleSelectEasyExam = () => {
+    setDomain('easy')
+    loadEasyExam(easyDomainsData)
+  }
+
+  const handleSelectCompleteExam = (count: number) => {
     setDomain('complete')
-    loadCompleteExam(domainsData)
+    loadCompleteExam(domainsData, count)
   }
 
   return (
@@ -54,6 +63,35 @@ export function DomainSelection() {
         >
           Choose a functional area to begin your AZ-900 preparation.
         </p>
+      </div>
+
+      <div className="mb-8 flex justify-center w-full">
+        <button
+          onClick={handleSelectEasyExam}
+          className="group relative flex w-full items-center justify-between rounded-2xl border border-primary/50 bg-gradient-to-br from-primary/10 to-transparent p-6 text-left shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary overflow-hidden hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98] animate-slide-in-up opacity-0"
+          style={{ animationDelay: `0ms`, animationFillMode: 'forwards' }}
+        >
+          <div className="absolute inset-0 bg-primary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+          
+          <div className="flex items-center gap-6">
+            <div className="rounded-xl bg-primary/20 p-4 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+              <BookOpen className="h-8 w-8" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold leading-tight text-foreground mb-1">
+                Easy Quiz
+              </h3>
+              <p className="text-base font-medium text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+                All 3 Domains • 40 Questions • Random Order
+              </p>
+            </div>
+          </div>
+          
+          <div className="hidden sm:flex items-center gap-2 text-sm font-semibold text-primary">
+            <span>Start Easy Practice</span>
+            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+          </div>
+        </button>
       </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -90,15 +128,14 @@ export function DomainSelection() {
         })}
       </div>
 
-      <div className="mt-12 flex justify-center w-full">
-        <button
-          onClick={handleSelectCompleteExam}
-          className="group relative flex w-full max-w-2xl items-center justify-between rounded-2xl border border-primary/50 bg-gradient-to-br from-primary/10 to-transparent p-6 text-left shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary overflow-hidden hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98] animate-slide-in-up opacity-0"
+      <div className="mt-12 flex flex-col items-center gap-4 w-full">
+        <div
+          className="group relative flex w-full max-w-2xl flex-col sm:flex-row items-center justify-between rounded-2xl border border-primary/50 bg-gradient-to-br from-primary/10 to-transparent p-6 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 hover:border-primary overflow-hidden animate-slide-in-up opacity-0"
           style={{ animationDelay: `400ms`, animationFillMode: 'forwards' }}
         >
           <div className="absolute inset-0 bg-primary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
           
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 mb-6 sm:mb-0 transition-transform duration-300 group-hover:-translate-y-1 sm:group-hover:-translate-y-0 sm:group-hover:translate-x-1">
             <div className="rounded-xl bg-primary/20 p-4 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
               <BookOpen className="h-8 w-8" />
             </div>
@@ -107,16 +144,26 @@ export function DomainSelection() {
                 Complete Exam
               </h3>
               <p className="text-base font-medium text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
-                All 3 Domains • 100 Questions • Exam Weighted
+                All 3 Domains • Exam Weighted
               </p>
             </div>
           </div>
           
-          <div className="hidden sm:flex items-center gap-2 text-sm font-semibold text-primary">
-            <span>Start Full Practice</span>
-            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+          <div className="flex items-center gap-3 z-10 w-full sm:w-auto">
+            <button
+              onClick={() => handleSelectCompleteExam(40)}
+              className="flex-1 sm:flex-none rounded-xl bg-background px-5 py-2.5 text-sm font-semibold text-foreground transition-all duration-300 hover:bg-primary/20 border border-primary/30 hover:border-primary/50"
+            >
+              40 Qs
+            </button>
+            <button
+              onClick={() => handleSelectCompleteExam(60)}
+              className="flex-1 sm:flex-none rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary/90 hover:scale-105 active:scale-95 shadow-sm"
+            >
+              60 Qs
+            </button>
           </div>
-        </button>
+        </div>
       </div>
     </section>
   )

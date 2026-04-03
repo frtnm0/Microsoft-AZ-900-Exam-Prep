@@ -1,0 +1,802 @@
+[
+  {
+    "id": 0,
+    "term": "Pricing Calculator",
+    "category": "Cost Management",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which tool allows you to estimate the expected monthly costs for Azure services before you deploy them?",
+        "options": [
+          "Pricing Calculator",
+          "TCO Calculator",
+          "Azure Cost Management",
+          "Azure Advisor"
+        ],
+        "answer": "Pricing Calculator",
+        "explanation": "The Pricing Calculator helps estimate the cost of Azure products and features before purchasing.",
+        "link": "https://azure.microsoft.com/en-us/pricing/calculator/"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "term": "TCO Calculator",
+    "category": "Cost Management",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What should you use to estimate the cost savings of migrating your on-premises datacenters to Azure?",
+        "options": [
+          "TCO Calculator",
+          "Pricing Calculator",
+          "Azure Cost Management",
+          "Azure Migrate"
+        ],
+        "answer": "TCO Calculator",
+        "explanation": "The Total Cost of Ownership (TCO) Calculator helps estimate the cost savings achievable by migrating to Azure.",
+        "link": "https://azure.microsoft.com/en-us/pricing/tco/calculator/"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "term": "Azure Cost Management",
+    "category": "Cost Management",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Identify the service used to monitor and track your billed Azure expenditures over time.",
+        "options": [
+          "Azure Cost Management",
+          "TCO Calculator",
+          "Pricing Calculator",
+          "Azure Monitor"
+        ],
+        "answer": "Azure Cost Management",
+        "explanation": "Azure Cost Management provides reporting and analytics on your actual usage and spending in Azure.",
+        "link": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/overview-cost-mgt"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "term": "Spending Limits",
+    "category": "Cost Management",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What feature automatically disables services to prevent you from getting unexpectedly billed beyond a predefined allowance?",
+        "options": [
+          "Spending Limits",
+          "Azure Budgets",
+          "Resource Locks",
+          "Azure Policy"
+        ],
+        "answer": "Spending Limits",
+        "explanation": "Spending limits exist in specific subscriptions (like free trials) to ensure you are not unexpectedly charged when free credits run out.",
+        "link": "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/spending-limit"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "term": "Azure Reservations",
+    "category": "Cost Management",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which cost-saving option requires committing to a 1-year or 3-year plan for specific resources?",
+        "options": [
+          "Azure Reservations",
+          "Azure Hybrid Benefit",
+          "Spot Instances",
+          "Spending Limits"
+        ],
+        "answer": "Azure Reservations",
+        "explanation": "Azure Reservations help you save money by committing to 1-year or 3-year plans for multiple products.",
+        "link": "https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "term": "Azure Hybrid Benefit",
+    "category": "Cost Management",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "How can you significantly reduce cloud costs if you already own on-premises Windows Server or SQL Server licenses?",
+        "options": [
+          "Azure Hybrid Benefit",
+          "Azure Reservations",
+          "TCO Calculator",
+          "Dev/Test Pricing"
+        ],
+        "answer": "Azure Hybrid Benefit",
+        "explanation": "Azure Hybrid Benefit lets you bring existing on-premises Windows Server and SQL Server licenses to Azure to save money.",
+        "link": "https://azure.microsoft.com/en-us/pricing/hybrid-benefit/"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "term": "Resource Tags",
+    "category": "Cost Management",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What feature applies simple name-value pairs to logically organize resources and their billing data?",
+        "options": [
+          "Resource Tags",
+          "Resource Groups",
+          "Management Groups",
+          "Initatives"
+        ],
+        "answer": "Resource Tags",
+        "explanation": "Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "term": "Billing Boundary",
+    "category": "Cost Management",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "An Azure Subscription acts as which type of boundary for tracking usage charges?",
+        "options": [
+          "Billing Boundary",
+          "Network Boundary",
+          "Security Boundary",
+          "Identity Boundary"
+        ],
+        "answer": "Billing Boundary",
+        "explanation": "A subscription is a logical container used to provision resources in Azure; it acts as an explicit billing boundary.",
+        "link": "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "term": "Azure Policy",
+    "category": "Governance and Compliance",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which service evaluates resources and enforces specific organizational rules, such as restricting allowed regions?",
+        "options": [
+          "Azure Policy",
+          "Role-Based Access Control (RBAC)",
+          "Azure Blueprints",
+          "Resource Locks"
+        ],
+        "answer": "Azure Policy",
+        "explanation": "Azure Policy enforces different rules and effects over your resources so those resources stay compliant with corporate standards.",
+        "link": "https://learn.microsoft.com/en-us/azure/governance/policy/overview"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "term": "Policy Initiative",
+    "category": "Governance and Compliance",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Choose the term for a collection of Azure Policy definitions grouped together towards a single overarching goal.",
+        "options": [
+          "Policy Initiative",
+          "Management Group",
+          "Azure Blueprint",
+          "Resource Group"
+        ],
+        "answer": "Policy Initiative",
+        "explanation": "An initiative definition is a collection of policy definitions tailored to achieve a singular overarching compliance goal.",
+        "link": "https://learn.microsoft.com/en-us/azure/governance/policy/overview#initiative-definition"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "term": "Role-Based Access Control (RBAC)",
+    "category": "Governance and Compliance",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which security model determines strictly 'who' can do 'what' to specific Azure resources?",
+        "options": [
+          "Role-Based Access Control (RBAC)",
+          "Azure Policy",
+          "Resource Locks",
+          "Conditional Access"
+        ],
+        "answer": "Role-Based Access Control (RBAC)",
+        "explanation": "RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management.",
+        "link": "https://learn.microsoft.com/en-us/azure/role-based-access-control/overview"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "term": "Resource Locks",
+    "category": "Governance and Compliance",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "If you want to absolutely prevent an administrator from accidentally deleting a critical virtual machine, what should you apply?",
+        "options": [
+          "Resource Locks",
+          "Azure Policy",
+          "RBAC",
+          "Network Security Group"
+        ],
+        "answer": "Resource Locks",
+        "explanation": "Resource locks prevent accidental deletion or modification of resources, completely overriding RBAC permissions.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "term": "Microsoft Purview",
+    "category": "Governance and Compliance",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which unified platform helps you discover, classify, and comprehensively govern sensitive data everywhere?",
+        "options": [
+          "Microsoft Purview",
+          "Azure Policy",
+          "Microsoft Sentinel",
+          "Log Analytics"
+        ],
+        "answer": "Microsoft Purview",
+        "explanation": "Microsoft Purview provides a unified data governance solution to help manage and govern your on-premises, multi-cloud, and SaaS data.",
+        "link": "https://learn.microsoft.com/en-us/purview/purview"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "term": "Service Trust Portal",
+    "category": "Governance and Compliance",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Where can you physically download independent audit reports and regulatory compliance documents for Microsoft Cloud?",
+        "options": [
+          "Service Trust Portal",
+          "Azure Portal",
+          "Compliance Manager",
+          "Microsoft Purview"
+        ],
+        "answer": "Service Trust Portal",
+        "explanation": "The Service Trust Portal is Microsoft's public site publishing audit reports and compliance information.",
+        "link": "https://servicetrust.microsoft.com/"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "term": "Azure Blueprints",
+    "category": "Governance and Compliance",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What historical service allows architects to define a repeatable set of Azure resources, policies, and role assignments?",
+        "options": [
+          "Azure Blueprints",
+          "ARM Templates",
+          "Azure Policy",
+          "Azure Arc"
+        ],
+        "answer": "Azure Blueprints",
+        "explanation": "Azure Blueprints enables cloud architects to define a repeatable set of Azure resources that implement organizational standards.",
+        "link": "https://learn.microsoft.com/en-us/azure/governance/blueprints/overview"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "term": "Zero Trust Model",
+    "category": "Governance and Compliance",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which security philosophy assumes breach and explicitly verifies every single request regardless of origin?",
+        "options": [
+          "Zero Trust Model",
+          "Defense in Depth",
+          "Shared Responsibility",
+          "Perimeter Security"
+        ],
+        "answer": "Zero Trust Model",
+        "explanation": "Zero Trust means 'never trust, always verify'. It assumes breach and verifies each request as though it originates from an open network.",
+        "link": "https://www.microsoft.com/en-us/security/business/zero-trust"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "term": "Defense in Depth",
+    "category": "Governance and Compliance",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What is the strategy of employing multiple distinct layers of security controls spanning from physical to data layers?",
+        "options": [
+          "Defense in Depth",
+          "Zero Trust Model",
+          "Role-Based Access Control",
+          "Shared Responsibility Model"
+        ],
+        "answer": "Defense in Depth",
+        "explanation": "Defense in depth evaluates security in multiple independent layers to ensure that if one layer fails, others are still standing.",
+        "link": "https://learn.microsoft.com/en-us/training/modules/describe-security-concepts-methodologies/3-describe-defense-in-depth"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "term": "Compliance Manager",
+    "category": "Governance and Compliance",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which dashboard provides a specific, quantifiable score calculating your overall compliance posture against regulations?",
+        "options": [
+          "Compliance Manager",
+          "Service Trust Portal",
+          "Microsoft Defender for Cloud",
+          "Azure Policy"
+        ],
+        "answer": "Compliance Manager",
+        "explanation": "Microsoft Purview Compliance Manager calculates a risk-based score determining your progress in completing actions that help reduce risks around data protection.",
+        "link": "https://learn.microsoft.com/en-us/purview/compliance-manager"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "term": "Microsoft Entra ID",
+    "category": "Identity and Security",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What is the primary cloud-based identity and access management service built by Microsoft?",
+        "options": [
+          "Microsoft Entra ID",
+          "Azure Security Center",
+          "Microsoft Sentinel",
+          "Azure Role-Based Access Control"
+        ],
+        "answer": "Microsoft Entra ID",
+        "explanation": "Microsoft Entra ID (formerly Azure Active Directory) is Microsoft's cloud-based identity and access management service.",
+        "link": "https://learn.microsoft.com/en-us/entra/fundamentals/whatis"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "term": "Conditional Access",
+    "category": "Identity and Security",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which tool acts as an intelligent 'if-then' engine determining whether to grant access based on real-time signals?",
+        "options": [
+          "Conditional Access",
+          "Role-Based Access Control",
+          "Multi-Factor Authentication",
+          "Azure Policy"
+        ],
+        "answer": "Conditional Access",
+        "explanation": "Conditional Access analyzes signals (like user, location, device) to decide whether to allow, require MFA, or block access.",
+        "link": "https://learn.microsoft.com/en-us/entra/identity-platform/v2-conditional-access-dev-guide"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "term": "Multi-Factor Authentication (MFA)",
+    "category": "Identity and Security",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What security control fundamentally requires users to present at least two different forms of identity verification?",
+        "options": [
+          "Multi-Factor Authentication (MFA)",
+          "Single Sign-On (SSO)",
+          "Conditional Access",
+          "Role-Based Access Control"
+        ],
+        "answer": "Multi-Factor Authentication (MFA)",
+        "explanation": "MFA demands something you know (password) and something you have (phone) or are (biometric) to log in.",
+        "link": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mfa-howitworks"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "term": "Single Sign-On (SSO)",
+    "category": "Identity and Security",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which feature enables workers to conveniently log in exactly once and gain access to all authorized corporate apps?",
+        "options": [
+          "Single Sign-On (SSO)",
+          "Multi-Factor Authentication (MFA)",
+          "Conditional Access",
+          "Passwordless Authentication"
+        ],
+        "answer": "Single Sign-On (SSO)",
+        "explanation": "SSO means a user doesn't have to sign in to every application they use; one authentication grants access universally.",
+        "link": "https://learn.microsoft.com/en-us/entra/fundamentals/concept-fundamentals-sso"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "term": "Passwordless Authentication",
+    "category": "Identity and Security",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Methods like Windows Hello for Business or FIDO2 security keys fall under what modern authentication category?",
+        "options": [
+          "Passwordless Authentication",
+          "Single Sign-On (SSO)",
+          "Multi-Factor Authentication (MFA)",
+          "Conditional Access"
+        ],
+        "answer": "Passwordless Authentication",
+        "explanation": "Passwordless authentication removes the password entirely, relying on biometric or hardware tokens for highly secure access.",
+        "link": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passwordless"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "term": "Microsoft Entra External ID",
+    "category": "Identity and Security",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which specific capability allows external partners and consumers to safely sign into your organization's customized applications?",
+        "options": [
+          "Microsoft Entra External ID",
+          "Microsoft Entra ID",
+          "Azure Active Directory Domain Services",
+          "Single Sign-On (SSO)"
+        ],
+        "answer": "Microsoft Entra External ID",
+        "explanation": "External ID allows organizations to securely collaborate with external partners and build customer-facing consumer apps.",
+        "link": "https://learn.microsoft.com/en-us/entra/external-id/"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "term": "Microsoft Defender for Cloud",
+    "category": "Identity and Security",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What is Azure's definitive Cloud Security Posture Management (CSPM) and threat protection tool?",
+        "options": [
+          "Microsoft Defender for Cloud",
+          "Microsoft Sentinel",
+          "Azure Monitor",
+          "Microsoft Purview"
+        ],
+        "answer": "Microsoft Defender for Cloud",
+        "explanation": "Defender for Cloud proactively assesses, secures, and defends your multi-cloud and on-premises environments.",
+        "link": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "term": "Microsoft Sentinel",
+    "category": "Identity and Security",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which service acts as a scalable, cloud-native Security Information and Event Management (SIEM) system?",
+        "options": [
+          "Microsoft Sentinel",
+          "Microsoft Defender for Cloud",
+          "Azure Monitor",
+          "Log Analytics"
+        ],
+        "answer": "Microsoft Sentinel",
+        "explanation": "Sentinel is a cloud-native SIEM and SOAR solution delivering intelligent security analytics and threat intelligence natively.",
+        "link": "https://learn.microsoft.com/en-us/azure/sentinel/overview"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "term": "Azure Portal",
+    "category": "Management and Deployment Tools",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Identify the primary web-based graphical interface used exclusively to manage all modern Azure services.",
+        "options": [
+          "Azure Portal",
+          "Azure Cloud Shell",
+          "Azure CLI",
+          "Azure PowerShell"
+        ],
+        "answer": "Azure Portal",
+        "explanation": "The Azure portal is a web-based, unified console that provides a graphical user interface (GUI) to manage your Azure subscription.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "term": "Azure Cloud Shell",
+    "category": "Management and Deployment Tools",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What is the interactive, browser-accessible command-line environment natively hosted in Azure called?",
+        "options": [
+          "Azure Cloud Shell",
+          "Azure Portal",
+          "Azure CLI",
+          "Azure PowerShell"
+        ],
+        "answer": "Azure Cloud Shell",
+        "explanation": "Azure Cloud Shell is an interactive, authenticated, browser-accessible terminal for managing Azure resources.",
+        "link": "https://learn.microsoft.com/en-us/azure/cloud-shell/overview"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "term": "Azure PowerShell",
+    "category": "Management and Deployment Tools",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which tool provides a set of specifically compiled cmdlets for administering Azure directly from Windows or PowerShell Core?",
+        "options": [
+          "Azure PowerShell",
+          "Azure CLI",
+          "Azure Cloud Shell",
+          "Azure Bicep"
+        ],
+        "answer": "Azure PowerShell",
+        "explanation": "Azure PowerShell is an extension of Windows PowerShell designed to let you strictly manage Azure resources via cmdlets.",
+        "link": "https://learn.microsoft.com/en-us/powershell/azure/"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "term": "Azure CLI",
+    "category": "Management and Deployment Tools",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Choose the cross-platform command-line utility used to manage Azure resources, running consistently on Windows, macOS, and Linux.",
+        "options": [
+          "Azure CLI",
+          "Azure PowerShell",
+          "Azure Cloud Shell",
+          "Azure Bicep"
+        ],
+        "answer": "Azure CLI",
+        "explanation": "The Azure Command-Line Interface is a cross-platform command-line tool connecting to Azure and executing commands predictably.",
+        "link": "https://learn.microsoft.com/en-us/cli/azure/"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "term": "Infrastructure as Code (IaC)",
+    "category": "Management and Deployment Tools",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What broad concept involves defining and managing IT infrastructure fundamentally using machine-readable configuration files?",
+        "options": [
+          "Infrastructure as Code (IaC)",
+          "Software as a Service (SaaS)",
+          "DevOps",
+          "Azure CLI"
+        ],
+        "answer": "Infrastructure as Code (IaC)",
+        "explanation": "IaC is the practice of deeply integrating infrastructure setup into code files instead of doing manual clicking in a portal.",
+        "link": "https://learn.microsoft.com/en-us/devops/deliver/what-is-infrastructure-as-code"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "term": "ARM Templates",
+    "category": "Management and Deployment Tools",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which JSON-formatted files natively orchestrate declarative deployments of your Azure infrastructure solutions?",
+        "options": [
+          "ARM Templates",
+          "Azure Bicep",
+          "Azure Policy",
+          "Azure Blueprints"
+        ],
+        "answer": "ARM Templates",
+        "explanation": "Azure Resource Manager (ARM) templates are standardized JSON files specifying project infrastructure completely as code.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "term": "Azure Bicep",
+    "category": "Management and Deployment Tools",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Identify the distinct Domain-Specific Language (DSL) specifically created by Microsoft to simplify writing ARM templates.",
+        "options": [
+          "Azure Bicep",
+          "Azure CLI",
+          "JSON",
+          "Azure PowerShell"
+        ],
+        "answer": "Azure Bicep",
+        "explanation": "Bicep is a dedicated domain-specific language providing simpler syntax and reliable type safety for deploying Azure resources.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "term": "Azure Arc",
+    "category": "Management and Deployment Tools",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What service extends Azure's centralized management plane directly onto resources running in AWS, Google Cloud, or on-premises?",
+        "options": [
+          "Azure Arc",
+          "Azure Policy",
+          "Azure Resource Manager",
+          "Microsoft Defender"
+        ],
+        "answer": "Azure Arc",
+        "explanation": "Azure Arc fundamentally bridges Azure administration and services to any infrastructure, anywhere.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-arc/overview"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "term": "Azure Advisor",
+    "category": "Monitoring and Service Health",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which personalized service proactively examines your resource configuration to broadly recommend cost, security, and performance improvements?",
+        "options": [
+          "Azure Advisor",
+          "Azure Monitor",
+          "Azure Service Health",
+          "Log Analytics"
+        ],
+        "answer": "Azure Advisor",
+        "explanation": "Azure Advisor acts as a free, personalized cloud consultant analyzing telemetry to recommend best practices.",
+        "link": "https://learn.microsoft.com/en-us/azure/advisor/advisor-overview"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "term": "Azure Monitor",
+    "category": "Monitoring and Service Health",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What is the central comprehensive solution for completely collecting, analyzing, and acting on telemetry data from your cloud applications?",
+        "options": [
+          "Azure Monitor",
+          "Azure Advisor",
+          "Log Analytics",
+          "Application Insights"
+        ],
+        "answer": "Azure Monitor",
+        "explanation": "Azure Monitor maximizes availability and performance proactively by delivering a comprehensive toolset for analyzing telemetry.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-monitor/overview"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "term": "Log Analytics",
+    "category": "Monitoring and Service Health",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which component allows you to intensely query log data mathematically collected by Azure Monitor?",
+        "options": [
+          "Log Analytics",
+          "Application Insights",
+          "Azure Sentinel",
+          "Azure Advisor"
+        ],
+        "answer": "Log Analytics",
+        "explanation": "Log Analytics is a powerful tool integrated perfectly into Azure Monitor to write and execute deep KQL queries against log records.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "term": "Azure Monitor Alerts",
+    "category": "Monitoring and Service Health",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "What mechanism automatically notifies administrators predictably when specific metric thresholds or log criteria are met?",
+        "options": [
+          "Azure Monitor Alerts",
+          "Azure Service Health",
+          "Azure Advisor",
+          "Action Groups"
+        ],
+        "answer": "Azure Monitor Alerts",
+        "explanation": "Alerts in Azure Monitor proactively notify users intensely about critical conditions detected in monitoring datastreams.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "term": "Application Insights",
+    "category": "Monitoring and Service Health",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "Which Application Performance Management (APM) feature evaluates performance specifically from the perspective of code executing within web applications?",
+        "options": [
+          "Application Insights",
+          "Log Analytics",
+          "Azure Monitor",
+          "Azure Advisor"
+        ],
+        "answer": "Application Insights",
+        "explanation": "Application Insights is tailored for web developers proactively helping them quickly understand and diagnose application code execution.",
+        "link": "https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "term": "Azure Service Health",
+    "category": "Monitoring and Service Health",
+    "questions": [
+      {
+        "type": "easy",
+        "question": "If you strongly suspect Azure infrastructure itself is down, which dashboard clearly displays tracking for official Microsoft outages affecting you?",
+        "options": [
+          "Azure Service Health",
+          "Azure Monitor",
+          "Azure Advisor",
+          "Log Analytics"
+        ],
+        "answer": "Azure Service Health",
+        "explanation": "Azure Service Health provides a personalized view universally into the health of Azure services and regions critically impacting your deployed resources.",
+        "link": "https://learn.microsoft.com/en-us/azure/service-health/overview"
+      }
+    ]
+  }
+]
